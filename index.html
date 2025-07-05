@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiruy Legesse Adane | Software Engineering Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your Public Key (User ID)
+        emailjs.init('user_dQotFOu5mtbQjHSTV');
+        
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="#" class="text-xl font-bold text-primary dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition-transform duration-200">Hiruy Legesse</a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link hover:text-primary dark:hover:text-indigo-400 transition duration-200">Home</a>
+                    <a href="#about" class="nav-link hover:text-primary dark:hover:text-indigo-400 transition duration-200">About</a>
+                    <a href="#skills" class="nav-link hover:text-primary dark:hover:text-indigo-400 transition duration-200">Skills</a>
+                    <a href="#projects" class="nav-link hover:text-primary dark:hover:text-indigo-400 transition duration-200">Projects</a>
+                    <a href="#contact" class="nav-link hover:text-primary dark:hover:text-indigo-400 transition duration-200">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition hover:rotate-12 duration-200">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition hover:scale-110 duration-200">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 pb-4 px-4 shadow-lg">
+            <a href="#home" class="block py-2 hover:text-primary dark:hover:text-indigo-400 transition hover:pl-2 duration-200">Home</a>
+            <a href="#about" class="block py-2 hover:text-primary dark:hover:text-indigo-400 transition hover:pl-2 duration-200">About</a>
+            <a href="#skills" class="block py-2 hover:text-primary dark:hover:text-indigo-400 transition hover:pl-2 duration-200">Skills</a>
+            <a href="#projects" class="block py-2 hover:text-primary dark:hover:text-indigo-400 transition hover:pl-2 duration-200">Projects</a>
+            <a href="#contact" class="block py-2 hover:text-primary dark:hover:text-indigo-400 transition hover:pl-2 duration-200">Contact</a>
+            <div class="flex justify-between items-center pt-2">
+                <span>Dark Mode</span>
+                <button id="mobile-theme-toggle" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors hover:bg-gray-300 dark:hover:bg-gray-600">
+                    <span id="mobile-theme-toggle-circle" class="inline-block h-4 w-4 transform translate-x-1 dark:translate-x-6 rounded-full bg-white dark:bg-gray-300 transition-transform"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16 animate-fade-in">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2 animate-slide-up">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 hover:text-primary dark:hover:text-indigo-400 transition duration-300">Hi, I'm <span class="text-primary dark:text-blue-400 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">Hiruy Legesse</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 hover:text-gray-700 dark:hover:text-gray-300 transition duration-300">Software Engineer & UI/UX Designer</h2>
+                    <p class="text-lg mb-8 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 transition duration-300">
+                        I'm a passionate software engineering student with experience in Python, C++, Java, web development, and version control. 
+                        I love solving real-world problems through clean code and meaningful design.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-indigo-600 text-white px-6 py-3 rounded-lg transition shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">Contact Me</a>
+                        <a href="#projects" class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg transition shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">View Projects</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-slide-up">
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 group">
+                        <div class="absolute inset-0 bg-primary dark:bg-indigo-400 rounded-full opacity-20 animate-pulse group-hover:opacity-30 transition duration-300"></div>
+                        <div class="absolute inset-4 bg-primary dark:bg-indigo-600 rounded-full opacity-10 animate-ping group-hover:opacity-20 transition duration-300"></div>
+                        <img src="photo_2025-07-04_00-54-2.jpg" alt="Hiruy Legesse Adane" class="relative w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-xl group-hover:border-primary dark:group-hover:border-indigo-400 transition duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 hover:text-primary dark:hover:text-indigo-400 transition duration-300">About <span class="text-primary dark:text-indigo-400">Me</span></h2>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3 flex justify-center group">
+                    <img src="photo_2025-07-04_00-54-2.jpg" alt="Hiruy Legesse Adane" class="w-64 h-64 rounded-full object-cover border-4 border-primary dark:border-indigo-400 shadow-lg group-hover:border-secondary dark:group-hover:border-emerald-400 transition duration-300">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-semibold mb-4 hover:text-primary dark:hover:text-indigo-400 transition duration-300">Software Engineering Student at Addis Ababa University</h3>
+                    <p class="mb-6 text-gray-600 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">
+                        I'm a 20-year-old software engineering student based in Ethiopia with a passion for technology and problem-solving.
+                        During my primary and secondary school years, I was an active member of the school science and technology club,
+                        and participated in robotics teams at Hawassa University.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <p class="font-semibold hover:text-primary dark:hover:text-indigo-400 transition duration-300">Name: <span class="font-normal text-gray-600 dark:text-gray-300">Hiruy Legesse Adane</span></p>
+                            <p class="font-semibold hover:text-primary dark:hover:text-indigo-400 transition duration-300">Age: <span class="font-normal text-gray-600 dark:text-gray-300">20 years</span></p>
+                        </div>
+                        <div>
+                            <p class="font-semibold hover:text-primary dark:hover:text-indigo-400 transition duration-300">Location: <span class="font-normal text-gray-600 dark:text-gray-300">Ethiopia</span></p>
+                            <p class="font-semibold hover:text-primary dark:hover:text-indigo-400 transition duration-300">Education: <span class="font-normal text-gray-600 dark:text-gray-300">Addis Ababa University</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-primary hover:bg-indigo-600 text-white px-6 py-3 rounded-lg transition shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300 text-center">Contact Me</a>
+                        <a href="assets/Hiruy-Legesse-CV.pdf" download="Hiruy-Legesse-CV.pdf" 
+                           class="bg-secondary hover:bg-emerald-600 text-white px-6 py-3 rounded-lg transition shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300 text-center inline-flex items-center justify-center">
+                           <i class="fas fa-file-pdf mr-2"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4 hover:text-primary dark:hover:text-blue-400 transition duration-300">My <span class="text-primary dark:text-blue-400">Skills</span></h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">Here are the technologies and tools I work with to create amazing digital experiences.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Frontend Skills -->
+                <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary dark:text-blue-400 text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">HTML5</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">Semantic markup and accessibility</p>
+                </div>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary dark:text-blue-400 text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">CSS3</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">Responsive design and animations</p>
+                </div>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary dark:text-blue-400 text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">JavaScript</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">ES6+ and modern frameworks</p>
+                </div>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary dark:text-blue-400 text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">React</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">Component-based architecture</p>
+                </div>
+                
+                <!-- UI/UX Skills -->
+                <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary dark:text-blue-400 text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">UI Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">Visual design and prototyping</p>
+                </div>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary dark:text-blue-400 text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">UX Research</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">User flows and personas</p>
+                </div>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary dark:text-blue-400 text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">Figma</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">Wireframing and prototyping</p>
+                </div>
+                
+                <div class="skill-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="text-primary dark:text-blue-400 text-4xl mb-4 hover:text-indigo-600 dark:hover:text-indigo-300 transition duration-300">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">Responsive Design</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">Mobile-first approach</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4 hover:text-primary dark:hover:text-indigo-400 transition duration-300">My <span class="text-primary dark:text-indigo-400">Projects</span></h2>
+            <p class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">Here are some of my recent projects that showcase my skills and experience.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center hover:from-blue-500 hover:to-blue-700 transition duration-300">
+                        <i class="fas fa-book text-white text-6xl hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 hover:text-primary dark:hover:text-blue-400 transition duration-300">Library Book Management System</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">
+                            A system to manage book inventory, borrowing, return dates, and fine tracking using Java and SQL.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">Java</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">SQL</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">Database</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center hover:from-purple-500 hover:to-purple-700 transition duration-300">
+                        <i class="fas fa-blog text-white text-6xl hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 hover:text-primary dark:hover:text-purple-400 transition duration-300">Responsive Blog Website</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">
+                            Multi-page responsive blog layout with clean design and smooth navigation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">HTML</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">CSS</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center hover:from-green-500 hover:to-green-700 transition duration-300">
+                        <i class="fas fa-temperature-high text-white text-6xl hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 hover:text-primary dark:hover:text-green-400 transition duration-300">Temperature Conversion</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">
+                            A web app that converts temperatures between Celsius, Fahrenheit, and Kelvin.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">HTML</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">CSS</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-yellow-400 to-yellow-600 flex items-center justify-center hover:from-yellow-500 hover:to-yellow-700 transition duration-300">
+                        <i class="fas fa-calculator text-white text-6xl hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 hover:text-primary dark:hover:text-yellow-400 transition duration-300">Calculator</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 hover:text-gray-700 dark:hover:text-gray-200 transition duration-300">
+                            A simple calculator with addition, subtraction, multiplication, and division.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">HTML</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">CSS</span>
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-800 transition duration-300">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Web3Forms -->
+<section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Get In Touch</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300">Have a project in mind or want to connect? Send me a message!</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden hover-lift transition-all duration-300">
+            <form id="contact-form" class="p-8">
+                <!-- Web3Forms Hidden Fields -->
+                <input type="hidden" name="access_key" value="4d217345-51a8-494b-84dc-15b01ad62e7a">
+                <input type="hidden" name="subject" value="New Message from Portfolio">
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <!-- Form Status Message -->
+                <div id="form-status" class="hidden mb-6 p-4 rounded-lg text-center"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
+                        <input type="text" name="name" id="name" required
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address *</label>
+                        <input type="email" name="email" id="email" required
+                               class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Message *</label>
+                    <textarea name="message" id="message" rows="5" required
+                              class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent transition"></textarea>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input type="checkbox" name="consent" id="consent" required
+                               class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                        <label for="consent" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+                            I consent to having my data stored *
+                        </label>
+                    </div>
+                    <button type="submit" id="submit-btn"
+                            class="bg-primary hover:bg-indigo-700 text-white px-6 py-3 rounded-lg hover-lift transition flex items-center">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Alternative Contact Methods -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+            <!-- Email -->
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow hover-lift transition">
+                <div class="bg-primary/10 dark:bg-indigo-400/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-envelope text-primary dark:text-indigo-400 text-xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-900 dark:text-white mb-1">Email</h3>
+                <a href="mailto:hiruyadane@gmail.com" class="text-primary dark:text-indigo-400 hover:underline">hiruyadane@gmail.com</a>
+            </div>
+
+            <!-- Phone -->
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow hover-lift transition">
+                <div class="bg-primary/10 dark:bg-indigo-400/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-phone-alt text-primary dark:text-indigo-400 text-xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-900 dark:text-white mb-1">Phone</h3>
+                <a href="tel:+251939776522" class="text-primary dark:text-indigo-400 hover:underline">+251 939 776 522</a>
+            </div>
+
+            <!-- Telegram -->
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow hover-lift transition">
+                <div class="bg-primary/10 dark:bg-indigo-400/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fab fa-telegram-plane text-primary dark:text-indigo-400 text-xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-900 dark:text-white mb-1">Telegram</h3>
+                <a href="https://t.me/hiruy19" target="_blank" class="text-primary dark:text-indigo-400 hover:underline">@hiruy19</a>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow hover-lift transition">
+                <div class="bg-primary/10 dark:bg-indigo-400/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fab fa-linkedin-in text-primary dark:text-indigo-400 text-xl"></i>
+                </div>
+                <h3 class="font-medium text-gray-900 dark:text-white mb-1">LinkedIn</h3>
+                <a href="https://linkedin.com/in/hiruy-legesse" target="_blank" class="text-primary dark:text-indigo-400 hover:underline">hiruy-legesse</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="hover:text-white transition duration-300">&copy; <span id="current-year"></span> Hiruy Legesse Adane. All rights reserved.</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="https://github.com/hiruy72" target="_blank" class="social-icon hover:text-white transition duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/hiruy-legesse" target="_blank" class="social-icon hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://t.me/hiruy19" target="_blank" class="social-icon hover:text-white transition duration-300">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="mailto:hiruyadane@gmail.com" class="social-icon hover:text-white transition duration-300">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascrip.js"></script>
+</body>
+</html>
