@@ -1,7 +1,7 @@
 # hiruy-legesse-portfolio
 
 
-![Website Screenshot]()
+![Website Screenshot](portifolio.png)
 
 A modern, responsive portfolio website showcasing my skills, projects, and experience as a Software Engineering student.
 
