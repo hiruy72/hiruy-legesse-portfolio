@@ -1,192 +1,185 @@
 
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Dark mode toggle
+    
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const mobileThemeToggleCircle = document.getElementById('mobile-theme-toggle-circle');
-        
-        // Check for saved user preference or use system preference
-        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+
+        // Set initial theme
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-            mobileThemeToggleCircle.classList.replace('translate-x-1', 'translate-x-6');
+            themeIcon.className = 'fas fa-sun';
         } else {
             document.documentElement.classList.remove('dark');
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-            mobileThemeToggleCircle.classList.replace('translate-x-6', 'translate-x-1');
+            themeIcon.className = 'fas fa-moon';
         }
-        
-        // Toggle desktop theme
-        themeToggle.addEventListener('click', () => {
-            // Toggle icon
-            themeIcon.classList.toggle('fa-moon');
-            themeIcon.classList.toggle('fa-sun');
-            
-            // Toggle theme
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-            }
-        });
-        
-        // Toggle mobile theme
-        mobileThemeToggle.addEventListener('click', () => {
-            // Toggle circle position
-            mobileThemeToggleCircle.classList.toggle('translate-x-1');
-            mobileThemeToggleCircle.classList.toggle('translate-x-6');
-            
-            // Toggle theme
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('color-theme', 'light');
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('color-theme', 'dark');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            }
-        });
-        
-    // Form submission handler
-const form = document.getElementById('contact-form');
-const statusEl = document.getElementById('form-status');
-const submitBtn = document.getElementById('submit-btn');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // Change button to loading state
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-    submitBtn.disabled = true;
-    statusEl.classList.add('hidden');
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    try {
-        const formData = new FormData(form);
-        
-        // Add a timestamp to prevent caching issues
-        formData.append('_timestamp', Date.now());
-        
-        // Create abort controller for timeout
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-        
-        const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            },
-            signal: controller.signal
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        clearTimeout(timeoutId);
-
-        // First check if the response is OK (status 200-299)
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        // Then try to parse the JSON
-        const data = await response.json();
-        
-        if (data.success) {
-            statusEl.innerHTML = `
-                <div class="flex items-center justify-center">
-                    <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    Message sent successfully! I'll get back to you soon.
-                </div>
-            `;
-            statusEl.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'dark:bg-red-900', 'dark:text-red-200');
-            statusEl.classList.add('bg-green-100', 'text-green-700', 'dark:bg-green-900', 'dark:text-green-200');
-            form.reset();
-            
-            // Track successful submission
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'form_submission', {
-                    'event_category': 'contact',
-                    'event_label': 'success'
-                });
-            }
-        } else {
-            throw new Error(data.message || 'The server responded but indicated a failure.');
-        }
-    } catch (error) {
-        console.error('Form submission error:', error);
-        
-        let errorMessage = 'An error occurred while sending your message.';
-        
-        if (error.name === 'AbortError') {
-            errorMessage = 'Request timed out. Your message may have been sent - please check your connection.';
-        } else if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-            errorMessage = 'Network error. Your message may have been sent, but we couldn\'t verify it.';
-        }
-        
-        statusEl.innerHTML = `
-            <div class="flex items-center justify-center">
-                <svg class="w-6 h-6 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-                ${errorMessage} You can also email me directly at <a href="mailto:hiruyadane@gmail.com" class="text-primary underline">hiruyadane@gmail.com</a>.
-            </div>
-        `;
-        
-        statusEl.classList.remove('hidden', 'bg-green-100', 'text-green-700', 'dark:bg-green-900', 'dark:text-green-200');
-        statusEl.classList.add('bg-red-100', 'text-red-700', 'dark:bg-red-900', 'dark:text-red-200');
-        
-        // Track failed submission
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'form_submission', {
-                'event_category': 'contact',
-                'event_label': 'failed',
-                'value': error.message
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
-        }
-    } finally {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        
-        // Scroll to status message
-        statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-});
-   
-  
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
                 }
             });
         });
 
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            });
+        }
+
+        // Intersection Observer for skill bars animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 10 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                
+                // Random animation delay and duration
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 10;
+                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Form submission with Web3Forms
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Change button text and disable
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            
+            // Send form data using fetch
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async response => {
+                const json = await response.json();
+                
+                if (response.status === 200) {
+                    // Success
+                    formStatus.className = 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 mb-6 p-4 rounded-lg text-center';
+                    formStatus.innerHTML = 'Thank you! Your message has been sent successfully.';
+                    formStatus.classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    // Error
+                    throw new Error(json.message);
+                }
+            })
+            .catch(error => {
+                // Error
+                formStatus.className = 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 mb-6 p-4 rounded-lg text-center';
+                formStatus.innerHTML = 'Oops! There was a problem sending your message. Please try again.';
+                formStatus.classList.remove('hidden');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Reset button
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> Send Message';
+                submitBtn.disabled = false;
+                
+                // Hide status message after 5 seconds
+                setTimeout(() => {
+                    formStatus.classList.add('hidden');
+                }, 5000);
+            });
+        });
+
+        // Add scroll-based animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        // Initial check on page load
+        handleScrollAnimations();
     
