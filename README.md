@@ -33,4 +33,5 @@ Features ✨
 2. About: Personal information and background
 3. Skills: Technical skills with icons
 4. Projects: Showcase of work with interactive cards
-5. Contact: Contact form with multiple contact methods
+5. Certificates: Showcase of certificates
+6. Contact: Contact form with multiple contact methods
