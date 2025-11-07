@@ -182,4 +182,5 @@
         
         // Initial check on page load
         handleScrollAnimations();
+
     
