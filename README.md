@@ -13,7 +13,7 @@ Features ✨
   - Animated navigation
   - Interactive project cards
   - Smooth scrolling
-- Contact Form**: Integrated with Web3Forms for easy communication
+- **Contact Form**: Integrated with Web3Forms for easy communication
 - Performance Optimized: Fast loading times
 
  Technologies Used 🛠️
