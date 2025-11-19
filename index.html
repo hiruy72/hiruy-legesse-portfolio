@@ -149,6 +149,298 @@
         .dark .shadow-xl {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
         }
+        .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding: 2rem;
+}
+
+.relative {
+    position: relative;
+}
+
+.w-80 {
+    width: 20rem;
+}
+
+.h-80 {
+    height: 20rem;
+}
+
+.sm\:w-96 {
+    width: 24rem;
+}
+
+.sm\:h-96 {
+    height: 24rem;
+}
+
+.group {
+    position: relative;
+}
+
+.floating {
+    animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.absolute {
+    position: absolute;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.inset-8 {
+    top: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.bg-primary-400 {
+    background-color: #3b82f6;
+}
+
+.bg-primary-500 {
+    background-color: #2563eb;
+}
+
+.bg-primary-600 {
+    background-color: #1d4ed8;
+}
+
+.dark\:bg-primary-500 {
+    background-color: #2563eb;
+}
+
+.dark\:bg-primary-600 {
+    background-color: #1d4ed8;
+}
+
+.rounded-full {
+    border-radius: 50%;
+}
+
+.opacity-20 {
+    opacity: 0.2;
+}
+
+.opacity-15 {
+    opacity: 0.15;
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.4; }
+}
+
+.animate-ping {
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+    75%, 100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.group-hover\:opacity-30:hover {
+    opacity: 0.3;
+}
+
+.group-hover\:opacity-25:hover {
+    opacity: 0.25;
+}
+
+.transition {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+}
+
+.duration-500 {
+    transition-duration: 500ms;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.object-cover {
+    object-fit: cover;
+}
+
+.border-4 {
+    border-width: 4px;
+}
+
+.border-white {
+    border-color: #fff;
+}
+
+.border-dark-800 {
+    border-color: #1e293b;
+}
+
+.shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.group-hover\:border-primary-500:hover {
+    border-color: #3b82f6;
+}
+
+.group-hover\:border-primary-400:hover {
+    border-color: #60a5fa;
+}
+
+.transition-all {
+    transition: all 0.5s ease;
+}
+
+.profile-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.group:hover .profile-glow {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+/* Tech Icons */
+.tech-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 10;
+    animation: icon-float 4s ease-in-out infinite;
+}
+
+.tech-icon:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.tech-icon i {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.figma-icon {
+    top: 10%;
+    left: 10%;
+    background: linear-gradient(135deg, #f24e1e, #a259ff);
+    animation-delay: 0s;
+}
+
+.nextjs-icon {
+    top: 10%;
+    right: 10%;
+    background: linear-gradient(135deg, #000000, #ffffff);
+    color: #000;
+    animation-delay: 0.5s;
+}
+
+.react-icon {
+    bottom: 10%;
+    left: 10%;
+    background: linear-gradient(135deg, #61dafb, #087ea4);
+    animation-delay: 1s;
+}
+
+.js-icon {
+    bottom: 10%;
+    right: 10%;
+    background: linear-gradient(135deg, #f7df1e, #000000);
+    color: #000;
+    animation-delay: 1.5s;
+}
+
+@keyframes icon-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+/* Tooltips */
+.tooltip {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 5px 5px 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+}
+
+.tech-icon:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: -35px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .w-80, .h-80 {
+        width: 16rem;
+        height: 16rem;
+    }
+    
+    .tech-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
 
         /* Enhanced hover effects */
         .hover-lift {
@@ -304,40 +596,93 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-10 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-100 dark:from-dark-950 dark:via-dark-900 dark:to-primary-900/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-16">
-                <div class="md:w-1/2 animate-fade-in">
-                    <h3 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
-                        Hi, I'm <span class="text-primary-600 dark:text-primary-400 bg-gradient-to-r from-primary-600 to-purple-600 dark:from-primary-400 dark:to-purple-400 bg-clip-text text-transparent">Hiruy Legesse</span>
-                    </h3>
-                    <h3 class="text-3xl md:text-4xl font-semibold mb-8 text-gray-700 dark:text-gray-300">
-                        Software Engineer & UI/UX Designer
-                    </h3>
-                    <p class="text-xl mb-10 text-gray-600 dark:text-gray-400 leading-relaxed">
-                        I'm a passionate software engineering student with experience in Python, C++, Java, web development, and version control. 
-                        I love solving real-world problems through clean code and meaningful design.
-                    </p>
-                    <div class="flex flex-wrap gap-6">
-                        <a href="#contact" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-2 font-semibold text-lg">
-                            Contact Me
-                        </a>
-                        <a href="#projects" class="border-2 border-primary-600 text-primary-600 dark:border-primary-400 dark:text-primary-400 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-400 px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-2 font-semibold text-lg">
-                            View Projects
-                        </a>
-                    </div>
+     <section id="home" class="min-h-screen flex items-center pt-10 bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-100 dark:from-dark-950 dark:via-dark-900 dark:to-primary-900/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-16">
+            <div class="md:w-1/2 animate-fade-in">
+                <h3 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
+                    Hi, I'm <span class="text-primary-600 dark:text-primary-400 bg-gradient-to-r from-primary-600 to-purple-600 dark:from-primary-400 dark:to-purple-400 bg-clip-text text-transparent">Hiruy Legesse</span>
+                </h3>
+                <h3 class="text-3xl md:text-4xl font-semibold mb-8 text-gray-700 dark:text-gray-300">
+                    Software Engineer & UI/UX Designer
+                </h3>
+                <p class="text-xl mb-10 text-gray-600 dark:text-gray-400 leading-relaxed">
+                    I'm a passionate software engineering student with experience in Python, C++, Java, web development, and version control. 
+                    I love solving real-world problems through clean code and meaningful design.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#contact" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-2 font-semibold text-lg">
+                        Contact Me
+                    </a>
+                    <a href="#projects" class="border-2 border-primary-600 text-primary-600 dark:border-primary-400 dark:text-primary-400 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-400 px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-2 font-semibold text-lg">
+                        View Projects
+                    </a>
                 </div>
-                <div class="md:w-1/2 flex justify-center animate-slide-up sm:hidden md:flex"> 
-                    <div class="relative w-80 h-80 sm:w-96 sm:h-96 group floating">
-                        <div class="absolute inset-0 bg-primary-400 dark:bg-primary-500 rounded-full opacity-20 animate-pulse group-hover:opacity-30 transition duration-500"></div>
-                        <div class="absolute inset-8 bg-primary-500 dark:bg-primary-600 rounded-full opacity-15 animate-ping group-hover:opacity-25 transition duration-500"></div>
-                        <img src="photo_2025-07-04_00-54-2.jpg" alt="Hiruy Legesse Adane" 
-                             class="relative w-full h-full rounded-full object-cover border-4 border-white dark:border-dark-800 shadow-2xl group-hover:border-primary-500 dark:group-hover:border-primary-400 transition-all duration-500 profile-glow">
+            </div>
+            <div class="md:w-1/2 flex justify-center animate-slide-up sm:hidden md:flex"> 
+                <div class="relative w-80 h-80 sm:w-96 sm:h-96 group floating">
+                    <!-- Background effects -->
+                    <div class="absolute inset-0 bg-primary-400 dark:bg-primary-500 rounded-full opacity-20 animate-pulse group-hover:opacity-30 transition duration-500"></div>
+                    <div class="absolute inset-8 bg-primary-500 dark:bg-primary-600 rounded-full opacity-15 animate-ping group-hover:opacity-25 transition duration-500"></div>
+                    
+                    <!-- Profile image -->
+                    <img src="photo_2025-07-04_00-54-2.jpg"
+                         alt="Hiruy Legesse Adane" 
+                         class="relative w-full h-full rounded-full object-cover border-4 border-white dark:border-dark-800 shadow-2xl group-hover:border-primary-500 dark:group-hover:border-primary-400 transition-all duration-500 profile-glow">
+                    
+                    <!-- Floating tech icons - Larger and more visible -->
+                    <div class="tech-icon figma-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" class="w-8 h-8">
+                            <path fill="#0acf83" d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z"/>
+                            <path fill="#a259ff" d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z"/>
+                            <path fill="#f24e1e" d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z"/>
+                            <path fill="#ff7262" d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z"/>
+                            <path fill="#1abcfe" d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z"/>
+                        </svg>
+                        <span class="tooltip">Figma</span>
+                    </div>
+                    <div class="tech-icon nextjs-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" class="w-8 h-8">
+                            <mask id="nextjs-mask" mask-type="alpha">
+                                <circle cx="90" cy="90" r="90" fill="white"/>
+                            </mask>
+                            <g mask="url(#nextjs-mask)">
+                                <circle cx="90" cy="90" r="90" fill="black"/>
+                                <path d="M149.508 157.323L105.056 138.087V114.185L143.316 131.057V50.22L63.516 15.66V140.537L26.492 124.992V34.22L149.508 84.662V157.323Z" fill="url(#nextjs-gradient)"/>
+                                <path d="M105.056 138.087L149.508 157.323V84.662L105.056 65.426V138.087Z" fill="black"/>
+                            </g>
+                            <defs>
+                                <linearGradient id="nextjs-gradient" x1="58.228" y1="10.025" x2="123.972" y2="152.212" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="white"/>
+                                    <stop offset="1" stop-color="white" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="tooltip">Next.js</span>
+                    </div>
+                    <div class="tech-icon react-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348" class="w-8 h-8">
+                            <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
+                            <g stroke="#61dafb" stroke-width="1" fill="none">
+                                <ellipse rx="11" ry="4.2"/>
+                                <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+                                <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+                            </g>
+                        </svg>
+                        <span class="tooltip">React</span>
+                    </div>
+                    <div class="tech-icon js-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630" class="w-8 h-8">
+                            <rect width="630" height="630" fill="#f7df1e"/>
+                            <path d="m423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 93 0 53.3-41.87 82.5-98.1 82.5-54.98 0-90.5-26.2-107.88-60.54zm-209.13 5.13c9.3 16.5 17.76 30.45 38.1 30.45 19.45 0 31.72-7.61 31.72-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z"/>
+                        </svg>
+                        <span class="tooltip">JavaScript</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     <!-- About Section -->
     <section id="about" class="py-24 bg-gradient-to-br from-gray-100 to-white dark:from-dark-900 dark:to-dark-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
