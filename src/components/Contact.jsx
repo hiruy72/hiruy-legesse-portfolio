@@ -6,6 +6,19 @@ const Contact = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+
+        const subject = encodeURIComponent(`Inquiry from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+        window.location.href = `mailto:hiruyadane@gmail.com?subject=${subject}&body=${body}`;
+    };
+
     return (
         <section id="contact" className="py-24 md:py-48 bg-background relative overflow-hidden border-t border-border/50">
             {/* Background Branding Elements */}
@@ -70,17 +83,21 @@ const Contact = () => {
                     >
                         <div className="absolute top-0 right-0 w-32 h-32 bg-foreground/5 rounded-full blur-3xl -z-10 group-hover:bg-foreground/10 transition-colors duration-1000"></div>
 
-                        <form className="space-y-12 relative z-10">
+                        <form onSubmit={handleSubmit} className="space-y-12 relative z-10">
                             <div className="space-y-4">
                                 <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Information</label>
                                 <input
+                                    name="name"
                                     type="text"
                                     placeholder="YOUR NAME"
+                                    required
                                     className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground"
                                 />
                                 <input
+                                    name="email"
                                     type="email"
                                     placeholder="EMAIL ADDRESS"
+                                    required
                                     className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground"
                                 />
                             </div>
@@ -88,13 +105,15 @@ const Contact = () => {
                             <div className="space-y-4">
                                 <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Brief</label>
                                 <textarea
+                                    name="message"
                                     placeholder="HOW CAN I HELP?"
                                     rows={4}
+                                    required
                                     className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground resize-none"
                                 />
                             </div>
 
-                            <button className="w-full h-20 bg-foreground text-background rounded-2xl flex items-center justify-center font-black uppercase tracking-[0.2em] text-xs gap-4 group hover:scale-[1.02] transition-all shadow-xl active:scale-95">
+                            <button type="submit" className="w-full h-20 bg-foreground text-background rounded-2xl flex items-center justify-center font-black uppercase tracking-[0.2em] text-xs gap-4 group hover:scale-[1.02] transition-all shadow-xl active:scale-95">
                                 Initialize Dispatch <Send size={16} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
                             </button>
                         </form>
