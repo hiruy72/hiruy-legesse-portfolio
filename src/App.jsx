@@ -55,6 +55,7 @@ function App() {
                                 </>
                             } />
                             <Route path="/credentials" element={<AllCertificates />} />
+                            <Route path="/contact" element={<Contact />} />
                             <Route path="/project/:id" element={<ProjectDetail />} />
                         </Routes>
                     </main>

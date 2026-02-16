@@ -16,13 +16,13 @@ const Navbar = ({ theme, toggleTheme }) => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '/#home' },
+        { name: 'Home', href: '/' },
         { name: 'About', href: '/#about' },
         { name: 'Tech Stack', href: '/#tech-stack' },
         { name: 'Projects', href: '/#projects' },
         { name: 'Experience', href: '/#experience' },
-        { name: 'Certificates', href: '/#certificates' },
-        { name: 'Contact', href: '/#contact' },
+        { name: 'Certificates', href: '/credentials' },
+        { name: 'Contact', href: '/contact' },
         { name: 'CV', href: '/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf', isDownload: true },
     ];
 
@@ -46,17 +46,26 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <div className="hidden md:flex items-center gap-8">
                     <div className="flex items-center gap-6">
                         {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                download={link.isDownload}
-                                target={link.isDownload ? "_blank" : undefined}
-                                rel={link.isDownload ? "noopener noreferrer" : undefined}
-                                className={`text-sm font-black uppercase tracking-widest transition-all duration-300 ${isHome ? 'text-muted-foreground hover:text-foreground' : 'text-muted-foreground hover:text-foreground'
-                                    }`}
-                            >
-                                {link.name}
-                            </a>
+                            link.isDownload ? (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    download={link.isDownload}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm font-black uppercase tracking-widest text-muted-foreground hover:text-foreground transition-all duration-300"
+                                >
+                                    {link.name}
+                                </a>
+                            ) : (
+                                <Link
+                                    key={link.name}
+                                    to={link.href}
+                                    className="text-sm font-black uppercase tracking-widest text-muted-foreground hover:text-foreground transition-all duration-300"
+                                >
+                                    {link.name}
+                                </Link>
+                            )
                         ))}
                     </div>
 
@@ -91,17 +100,28 @@ const Navbar = ({ theme, toggleTheme }) => {
             {isOpen && (
                 <div className="md:hidden fixed inset-0 top-[72px] bg-background/95 backdrop-blur-2xl z-[90] flex flex-col p-8 gap-8 animate-in fade-in slide-in-from-top-4 duration-300">
                     {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            download={link.isDownload}
-                            target={link.isDownload ? "_blank" : undefined}
-                            rel={link.isDownload ? "noopener noreferrer" : undefined}
-                            className="text-4xl font-black tracking-tighter uppercase hover:text-primary transition-colors"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            {link.name}
-                        </a>
+                        link.isDownload ? (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                download={link.isDownload}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-4xl font-black tracking-tighter uppercase hover:text-primary transition-colors"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {link.name}
+                            </a>
+                        ) : (
+                            <Link
+                                key={link.name}
+                                to={link.href}
+                                className="text-4xl font-black tracking-tighter uppercase hover:text-primary transition-colors"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {link.name}
+                            </Link>
+                        )
                     ))}
                 </div>
             )}

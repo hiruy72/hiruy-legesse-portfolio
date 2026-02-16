@@ -1,7 +1,10 @@
-import { Send, ArrowUpRight, Github, Linkedin, Mail, Twitter, ChevronUp } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Send, ArrowUpRight, Github, Linkedin, Mail, Twitter, ChevronUp, CheckCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 const Contact = () => {
+    const [isSent, setIsSent] = useState(false);
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -17,6 +20,8 @@ const Contact = () => {
         const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
 
         window.location.href = `mailto:hiruyadane@gmail.com?subject=${subject}&body=${body}`;
+        setIsSent(true);
+        setTimeout(() => setIsSent(false), 5000); // Reset after 5s
     };
 
     return (
@@ -83,40 +88,66 @@ const Contact = () => {
                     >
                         <div className="absolute top-0 right-0 w-32 h-32 bg-foreground/5 rounded-full blur-3xl -z-10 group-hover:bg-foreground/10 transition-colors duration-1000"></div>
 
-                        <form onSubmit={handleSubmit} className="space-y-12 relative z-10">
-                            <div className="space-y-4">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Information</label>
-                                <input
-                                    name="name"
-                                    type="text"
-                                    placeholder="YOUR NAME"
-                                    required
-                                    className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground"
-                                />
-                                <input
-                                    name="email"
-                                    type="email"
-                                    placeholder="EMAIL ADDRESS"
-                                    required
-                                    className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground"
-                                />
-                            </div>
+                        <AnimatePresence mode="wait">
+                            {!isSent ? (
+                                <motion.form
+                                    key="contact-form"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    onSubmit={handleSubmit}
+                                    className="space-y-12 relative z-10"
+                                >
+                                    <div className="space-y-4">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Information</label>
+                                        <input
+                                            name="name"
+                                            type="text"
+                                            placeholder="YOUR NAME"
+                                            required
+                                            className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground"
+                                        />
+                                        <input
+                                            name="email"
+                                            type="email"
+                                            placeholder="EMAIL ADDRESS"
+                                            required
+                                            className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground"
+                                        />
+                                    </div>
 
-                            <div className="space-y-4">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Brief</label>
-                                <textarea
-                                    name="message"
-                                    placeholder="HOW CAN I HELP?"
-                                    rows={4}
-                                    required
-                                    className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground resize-none"
-                                />
-                            </div>
+                                    <div className="space-y-4">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Brief</label>
+                                        <textarea
+                                            name="message"
+                                            placeholder="HOW CAN I HELP?"
+                                            rows={4}
+                                            required
+                                            className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground resize-none"
+                                        />
+                                    </div>
 
-                            <button type="submit" className="w-full h-20 bg-foreground text-background rounded-2xl flex items-center justify-center font-black uppercase tracking-[0.2em] text-xs gap-4 group hover:scale-[1.02] transition-all shadow-xl active:scale-95">
-                                Initialize Dispatch <Send size={16} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
-                            </button>
-                        </form>
+                                    <button type="submit" className="w-full h-20 bg-foreground text-background rounded-2xl flex items-center justify-center font-black uppercase tracking-[0.2em] text-xs gap-4 group hover:scale-[1.02] transition-all shadow-xl active:scale-95">
+                                        Initialize Dispatch <Send size={16} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
+                                    </button>
+                                </motion.form>
+                            ) : (
+                                <motion.div
+                                    key="success-message"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    className="flex flex-col items-center justify-center py-20 text-center space-y-6"
+                                >
+                                    <div className="w-20 h-20 bg-foreground text-background rounded-full flex items-center justify-center">
+                                        <CheckCircle size={40} />
+                                    </div>
+                                    <h4 className="text-2xl font-black uppercase tracking-tighter">Message Dispatched</h4>
+                                    <p className="text-sm text-muted-foreground uppercase tracking-widest leading-relaxed">
+                                        Your inquiry has been bridged to <br /> my terminal. I will respond shortly.
+                                    </p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </motion.div>
                 </div>
 
