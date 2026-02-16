@@ -1,0 +1,75 @@
+export const projects = [
+    {
+        id: 'ai-mock-interview',
+        title: 'AI Mock Interview Platform',
+        desc: 'An upcoming AI-powered platform built with Next.js, TypeScript, and VAPI. Users will be able to practice mock interviews and receive feedback.',
+        longDesc: 'The AI Mock Interview Platform is a specialized application designed to help job seekers prepare for technical and behavioral interviews. By leveraging real-time voice processing through VAPI and a robust Next.js frontend, the platform provides a low-latency, conversational experience. It features AI-driven question generation tailored to specific job roles and comprehensive post-interview analytics using advanced LLMs to identify areas for improvement.',
+        tags: ['Next.js', 'TypeScript', 'VAPI', 'AI/ML'],
+        image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1600',
+        liveLink: '#',
+        codeLink: '#',
+        status: 'Coming Soon',
+        year: '2025',
+        features: ['Voice-to-Voice AI interaction', 'Custom Interview Scenarios', 'Detailed Performance Feedback', 'Role-Specific Question Bank']
+    },
+    {
+        id: 'gym-website',
+        title: 'Gym Website Design',
+        desc: 'A Figma project shaped around a modern gym platform with simple navigation and accessible design.',
+        longDesc: 'This project focuses on the intersection of fitness and luxury. The design system uses dark aesthetics combined with vibrant accent colors to create a high-energy environment. The platform includes modules for personal training booking, workout tracking, and a community social feed. The goal was to provide a seamless mobile-first experience for gym members on the go.',
+        tags: ['Figma', 'UI/UX Design', 'Branding'],
+        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.figma.com/design/UP65i4eRtSmjc8TfGxYAWF/Gym-Project?node-id=22-710&t=qzvXATOgUCdODQLb-1',
+        codeLink: '#',
+        year: '2025',
+        features: ['Interactive Class Booking', 'Membership Management Flow', 'Personalized Training Dashboard', 'High-Contrast Accessibility']
+    },
+    {
+        id: 'eyoha-digitals',
+        title: 'Eyoha Digitals Design',
+        desc: 'A modern digital platform design by Eyoha Digitals, focused on clear navigation, engaging visuals, and intuitive user interaction.',
+        longDesc: 'Eyoha Digitals is a comprehensive brand identity and web design project. It explores the use of glassmorphism and bento-grid layouts to organize varied content types effectively. The design emphasizes speed, clarity, and conversion-focused UI elements, creating a digital agency presence that feels both professional and innovative.',
+        tags: ['Figma', 'UI/UX Design', 'Agency'],
+        image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.figma.com/design/GQduiHCXFekHKkIMRDevir/Untitled?node-id=0-1&p=f&t=oII6IWCO0tzIYlKG-0',
+        codeLink: '#',
+        year: '2025',
+        features: ['Glassmorphic Layouts', 'Dynamic Service Cards', 'Responsive Case Studies', 'Modern Typography System']
+    },
+    {
+        id: 'peer-teaching',
+        title: 'Peer Teaching Design',
+        desc: 'A Figma project focused on collaborative learning and peer teaching experience.',
+        longDesc: 'Designed to facilitate collaborative education, this platform connects students for peer-led learning sessions. The design methodology focuses on social proof and trust-building through detailed tutor profiles and rating systems. It features a simplified scheduling engine and an integrated whiteboard concept for real-time collaboration.',
+        tags: ['Figma', 'UI/UX Design', 'Education'],
+        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.figma.com/design/FkqiRIjQnUYMVM19fjPiO7/Untitled?node-id=102-2&t=L2S41HNafgyKULuS-1',
+        codeLink: '#',
+        year: '2025',
+        features: ['Peer Matching Algorithm', 'Real-time Canvas Concept', 'Education Statistics Dashboard', 'Gamified Learning Paths']
+    },
+    {
+        id: 'dev-events',
+        title: 'Dev Events Website',
+        desc: 'A platform to showcase tech events, view event details, and stay updated with upcoming developer conferences worldwide.',
+        longDesc: 'Dev Events is a full-stack Next.js 15 application designed for the global developer community. It integrates Posthog for advanced user analytics and uses a highly optimized server-side rendering approach for fast SEO-friendly event listings. The platform solves the problem of scattered event info by providing a unified, filterable hub for tech conferences.',
+        tags: ['Next.js', 'Posthog', 'Tailwind CSS', 'Analytic'],
+        image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://dev-events-nextjs-16.vercel.app/',
+        codeLink: 'https://github.com/hiruy72',
+        year: '2025',
+        features: ['Global Event Discovery', 'Advanced User Tracking', 'Speed-Optimized SSR', 'Newsletter Integration']
+    },
+    {
+        id: 'movie-listing',
+        title: 'Movie Listing Website',
+        desc: 'A dynamic site that displays movie data fetched from an API with search, filters, and responsive design.',
+        longDesc: 'This project demonstrates high-performance API integration and state management. Built with TypeScript and Next.js, it fetches real-time data from movie databases to provide a rich browsing experience. The UI features infinity scroll, complex filter trees, and personalized movie watchlists, all wrapped in a sleek, cinematic dark theme.',
+        tags: ['Next.js', 'CSS', 'TypeScript', 'API'],
+        image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://movie-store-dzvz123.vercel.app/',
+        codeLink: 'https://github.com/hiruy72',
+        year: '2024',
+        features: ['Real-time API Fetching', 'Custom Search Engine', 'Responsive Video Playback', 'Intelligent Filter System']
+    },
+];
