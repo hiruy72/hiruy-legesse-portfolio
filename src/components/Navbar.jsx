@@ -23,7 +23,6 @@ const Navbar = ({ theme, toggleTheme }) => {
         { name: 'Experience', href: '/#experience' },
         { name: 'Certificates', href: '/credentials' },
         { name: 'Contact', href: '/contact' },
-        { name: 'CV', href: '/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf', isDownload: true },
     ];
 
     const isHome = location.pathname === '/';
