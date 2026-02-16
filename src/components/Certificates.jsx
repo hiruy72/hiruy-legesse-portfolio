@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const topCertificates = [
     {
@@ -113,15 +114,15 @@ const Certificates = () => {
                 </div>
 
                 <div className="mt-32 flex justify-center">
-                    <a
-                        href="/certificates"
+                    <Link
+                        to="/certificates"
                         className="group flex items-center gap-10 text-xl md:text-2xl font-black uppercase tracking-[0.2em] text-foreground"
                     >
                         Explore Full Archive
                         <div className="w-16 h-16 border border-foreground rounded-full flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-500 shadow-2xl">
                             <ArrowRight size={28} className="group-hover:translate-x-2 transition-transform" />
                         </div>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

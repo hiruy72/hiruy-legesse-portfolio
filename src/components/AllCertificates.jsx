@@ -1,5 +1,8 @@
 import { ArrowLeft, FileText, ArrowRight, Award, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion(Link);
 
 const allCertificates = [
     {
@@ -60,8 +63,8 @@ const AllCertificates = () => {
             <div className="absolute top-0 right-0 w-1/2 h-screen bg-muted/5 -z-10 blur-3xl"></div>
 
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-                <motion.a
-                    href="/"
+                <MotionLink
+                    to="/"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     className="inline-flex items-center gap-4 text-xs font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all mb-20 group"
@@ -70,7 +73,7 @@ const AllCertificates = () => {
                         <ArrowLeft size={14} />
                     </div>
                     Back to Selection
-                </motion.a>
+                </MotionLink>
 
                 <div className="mb-32">
                     <motion.h2

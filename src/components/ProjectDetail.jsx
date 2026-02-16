@@ -24,8 +24,20 @@ const ProjectDetail = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="min-h-screen bg-background pb-32"
+            className="min-h-screen bg-background pb-32 relative"
         >
+            {/* Masterpiece Back Navigation - High Priority Overlay */}
+            <div className="fixed top-0 left-0 w-full z-[120] pt-32 px-6 md:px-20 pointer-events-none">
+                <div className="max-w-[1440px] mx-auto flex justify-start">
+                    <Link
+                        to="/"
+                        className="pointer-events-auto inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] bg-background/80 backdrop-blur-2xl px-10 py-5 rounded-full border border-foreground/10 hover:bg-foreground hover:text-background transition-all duration-500 group shadow-[0_20px_50px_rgba(0,0,0,0.2)]"
+                    >
+                        <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform" /> Back to Selection
+                    </Link>
+                </div>
+            </div>
+
             {/* Project Hero Header */}
             <div className="relative h-[70vh] md:h-[90vh] overflow-hidden">
                 <motion.div
@@ -42,15 +54,6 @@ const ProjectDetail = () => {
                 </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none"></div>
                 <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-background/80 to-transparent pointer-events-none"></div>
-
-                {/* Back Link - Standalone at Top */}
-                <div className="absolute top-0 left-0 w-full z-20 pt-40 px-6 md:px-20">
-                    <div className="max-w-[1440px] mx-auto">
-                        <Link to="/" className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] bg-background/20 backdrop-blur-xl px-10 py-4 rounded-full border border-white/10 hover:bg-foreground hover:text-background transition-all group shadow-2xl">
-                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Back to Selection
-                        </Link>
-                    </div>
-                </div>
 
                 <div className="absolute bottom-0 left-0 w-full p-6 md:p-20 overflow-hidden">
                     <div className="max-w-[1440px] mx-auto">
