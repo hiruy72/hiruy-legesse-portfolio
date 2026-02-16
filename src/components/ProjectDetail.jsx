@@ -40,8 +40,17 @@ const ProjectDetail = () => {
                         className="w-full h-full object-cover"
                     />
                 </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
-                <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-background/80 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none"></div>
+                <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-background/80 to-transparent pointer-events-none"></div>
+
+                {/* Back Link - Standalone at Top */}
+                <div className="absolute top-0 left-0 w-full z-20 pt-40 px-6 md:px-20">
+                    <div className="max-w-[1440px] mx-auto">
+                        <Link to="/" className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] bg-background/20 backdrop-blur-xl px-10 py-4 rounded-full border border-white/10 hover:bg-foreground hover:text-background transition-all group shadow-2xl">
+                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Back to Selection
+                        </Link>
+                    </div>
+                </div>
 
                 <div className="absolute bottom-0 left-0 w-full p-6 md:p-20 overflow-hidden">
                     <div className="max-w-[1440px] mx-auto">
@@ -50,11 +59,7 @@ const ProjectDetail = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.5 }}
                         >
-                            <Link to="/" className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] mb-12 bg-background/20 backdrop-blur-xl px-10 py-4 rounded-full border border-white/10 hover:bg-foreground hover:text-background transition-all group shadow-2xl">
-                                <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Back to Selection
-                            </Link>
-
-                            <h1 className="text-6xl md:text-[10rem] font-black uppercase tracking-[0.02em] leading-[0.7] mb-12">
+                            <h1 className="text-6xl md:text-[8rem] font-black uppercase tracking-[0.02em] leading-[0.7] mb-12">
                                 {project.title.split(' ').map((word, i) => (
                                     <span key={i} className={i % 2 !== 0 ? 'text-muted-foreground/40 dark:text-muted-foreground/30 italic block' : 'block'}>
                                         {word}
@@ -96,7 +101,7 @@ const ProjectDetail = () => {
                             <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-muted-foreground/60 flex items-center gap-4">
                                 <div className="w-8 h-[1px] bg-muted-foreground/40"></div> Project Vision
                             </h2>
-                            <p className="text-xl md:text-3xl font-black leading-[1.3] md:leading-[1.1] tracking-tighter text-foreground text-gradient">
+                            <p className="text-xl md:text-2xl font-black leading-[1.3] md:leading-[1.1] tracking-tighter text-foreground text-gradient">
                                 {project.longDesc}
                             </p>
                         </motion.div>

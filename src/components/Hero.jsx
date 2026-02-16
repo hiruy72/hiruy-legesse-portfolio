@@ -81,11 +81,11 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
-                            className="flex flex-wrap gap-8 items-center"
+                            className="flex flex-wrap gap-12 items-center"
                         >
-                            <a href="#projects" className="group relative px-14 py-7 bg-foreground text-background rounded-full font-black uppercase tracking-[0.2em] text-xs transition-all hover:scale-105 active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_50px_rgba(255,255,255,0.05)] overflow-hidden">
+                            <a href="#projects" className="group relative px-10 py-5 bg-foreground text-background rounded-full font-black uppercase tracking-[0.2em] text-[10px] transition-all hover:scale-105 active:scale-95 shadow-[0_20px_40px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_rgba(255,255,255,0.05)] overflow-hidden">
                                 <span className="relative z-10 flex items-center gap-4">
-                                    Launch Projects <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+                                    Launch Projects <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                                 </span>
                                 <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                             </a>
