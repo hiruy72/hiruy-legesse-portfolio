@@ -54,7 +54,7 @@ const About = () => {
                         <div className="mt-20">
                             <a
                                 href="/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf"
-                                download
+                                download="Hiruy-Legesse-Resume.pdf"
                                 className="group relative inline-flex items-center gap-6 px-10 py-5 bg-background border border-foreground rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-foreground hover:text-background transition-all duration-500 shadow-xl overflow-hidden"
                             >
                                 <span className="relative z-10 flex items-center gap-3">

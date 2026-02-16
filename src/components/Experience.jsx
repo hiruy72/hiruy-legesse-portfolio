@@ -111,6 +111,18 @@ const Experience = () => {
                             <div className="absolute inset-0 bg-foreground/5 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out -z-0"></div>
                         </motion.div>
                     ))}
+                    <div className="mt-24 flex justify-center">
+                        <a
+                            href="/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf"
+                            download="Hiruy-Legesse-Resume.pdf"
+                            className="group relative flex items-center gap-10 text-xl md:text-2xl font-black uppercase tracking-[0.2em] text-foreground"
+                        >
+                            Official Resume Repository
+                            <div className="w-16 h-16 border border-foreground rounded-full flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-500 shadow-2xl">
+                                <Briefcase size={28} className="group-hover:rotate-12 transition-transform" />
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

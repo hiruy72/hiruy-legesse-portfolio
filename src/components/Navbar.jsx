@@ -23,6 +23,7 @@ const Navbar = ({ theme, toggleTheme }) => {
         { name: 'Experience', href: '/#experience' },
         { name: 'Certificates', href: '/#certificates' },
         { name: 'Contact', href: '/#contact' },
+        { name: 'CV', href: '/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf', isDownload: true },
     ];
 
     const isHome = location.pathname === '/';
@@ -48,6 +49,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                             <a
                                 key={link.name}
                                 href={link.href}
+                                download={link.isDownload}
+                                target={link.isDownload ? "_blank" : undefined}
+                                rel={link.isDownload ? "noopener noreferrer" : undefined}
                                 className={`text-sm font-black uppercase tracking-widest transition-all duration-300 ${isHome ? 'text-muted-foreground hover:text-foreground' : 'text-muted-foreground hover:text-foreground'
                                     }`}
                             >
@@ -90,6 +94,9 @@ const Navbar = ({ theme, toggleTheme }) => {
                         <a
                             key={link.name}
                             href={link.href}
+                            download={link.isDownload}
+                            target={link.isDownload ? "_blank" : undefined}
+                            rel={link.isDownload ? "noopener noreferrer" : undefined}
                             className="text-4xl font-black tracking-tighter uppercase hover:text-primary transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
