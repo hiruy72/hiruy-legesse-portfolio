@@ -66,7 +66,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1 }}
                         viewport={{ once: true }}
-                        className="w-full lg:max-w-md bg-muted/30 p-12 md:p-16 rounded-[3rem] border border-border shadow-2xl relative overflow-hidden group"
+                        className="w-full lg:max-w-md bg-muted/50 dark:bg-muted/20 p-12 md:p-16 rounded-[4rem] border border-border/80 shadow-2xl relative overflow-hidden group"
                     >
                         <div className="absolute top-0 right-0 w-32 h-32 bg-foreground/5 rounded-full blur-3xl -z-10 group-hover:bg-foreground/10 transition-colors duration-1000"></div>
 
@@ -76,12 +76,12 @@ const Contact = () => {
                                 <input
                                     type="text"
                                     placeholder="YOUR NAME"
-                                    className="w-full bg-transparent border-b border-border py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/30"
+                                    className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground"
                                 />
                                 <input
                                     type="email"
                                     placeholder="EMAIL ADDRESS"
-                                    className="w-full bg-transparent border-b border-border py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/30"
+                                    className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground"
                                 />
                             </div>
 
@@ -90,7 +90,7 @@ const Contact = () => {
                                 <textarea
                                     placeholder="HOW CAN I HELP?"
                                     rows={4}
-                                    className="w-full bg-transparent border-b border-border py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/30 resize-none"
+                                    className="w-full bg-transparent border-b border-border/100 py-4 font-black uppercase tracking-widest text-xs focus:border-foreground outline-none transition-all placeholder:text-muted-foreground/60 text-foreground resize-none"
                                 />
                             </div>
 

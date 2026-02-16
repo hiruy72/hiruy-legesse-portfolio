@@ -115,7 +115,7 @@ const Certificates = () => {
 
                 <div className="mt-32 flex justify-center">
                     <Link
-                        to="/certificates"
+                        to="/credentials"
                         className="group flex items-center gap-10 text-xl md:text-2xl font-black uppercase tracking-[0.2em] text-foreground"
                     >
                         Explore Full Archive

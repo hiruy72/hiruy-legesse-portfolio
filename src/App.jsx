@@ -54,7 +54,7 @@ function App() {
                                     <Contact />
                                 </>
                             } />
-                            <Route path="/certificates" element={<AllCertificates />} />
+                            <Route path="/credentials" element={<AllCertificates />} />
                             <Route path="/project/:id" element={<ProjectDetail />} />
                         </Routes>
                     </main>
