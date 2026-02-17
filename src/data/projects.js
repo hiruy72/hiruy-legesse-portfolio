@@ -12,6 +12,18 @@ export const projects = [
         features: ['Automated Patient Registration', 'Doctor Schedule Management', 'Secure Medical Records', 'Real-time Appointment Tracking']
     },
     {
+        id: 'movie-listing',
+        title: 'Movie Listing Website',
+        desc: 'A dynamic site that displays movie data fetched from an API with search, filters, and responsive design.',
+        longDesc: 'This project demonstrates high-performance API integration and state management. Built with TypeScript and Next.js, it fetches real-time data from movie databases to provide a rich browsing experience. The UI features infinity scroll, complex filter trees, and personalized movie watchlists, all wrapped in a sleek, cinematic dark theme.',
+        tags: ['Next.js', 'CSS', 'TypeScript', 'API'],
+        image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://movie-store-dzvz123.vercel.app/',
+        codeLink: 'https://github.com/hiruy72',
+        year: '2024',
+        features: ['Real-time API Fetching', 'Custom Search Engine', 'Responsive Video Playback', 'Intelligent Filter System']
+    },
+    {
         id: 'trading-analysis',
         title: 'Trading Market Analysis App',
         desc: 'A sophisticated market analysis platform that provides real-time Buy, Sell, and Hold signals for Forex and Crypto traders.',
@@ -108,17 +120,5 @@ export const projects = [
         codeLink: 'https://github.com/hiruy72',
         year: '2025',
         features: ['Global Event Discovery', 'Advanced User Tracking', 'Speed-Optimized SSR', 'Newsletter Integration']
-    },
-    {
-        id: 'movie-listing',
-        title: 'Movie Listing Website',
-        desc: 'A dynamic site that displays movie data fetched from an API with search, filters, and responsive design.',
-        longDesc: 'This project demonstrates high-performance API integration and state management. Built with TypeScript and Next.js, it fetches real-time data from movie databases to provide a rich browsing experience. The UI features infinity scroll, complex filter trees, and personalized movie watchlists, all wrapped in a sleek, cinematic dark theme.',
-        tags: ['Next.js', 'CSS', 'TypeScript', 'API'],
-        image: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1600',
-        liveLink: 'https://movie-store-dzvz123.vercel.app/',
-        codeLink: 'https://github.com/hiruy72',
-        year: '2024',
-        features: ['Real-time API Fetching', 'Custom Search Engine', 'Responsive Video Playback', 'Intelligent Filter System']
     },
 ];
