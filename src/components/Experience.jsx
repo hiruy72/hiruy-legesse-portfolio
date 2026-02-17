@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin } from 'lucide-react';
+import { Briefcase, MapPin, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const experiences = [
     {
@@ -59,9 +60,15 @@ const Experience = () => {
                         className="max-w-4xl"
                     >
                         <h2 className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-6">Career Path</h2>
-                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase flex flex-wrap">
+                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase flex flex-wrap mb-12">
                             EXPER <br /> <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">IENCE.</span>
                         </h3>
+                        <Link
+                            to="/experience"
+                            className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group"
+                        >
+                            Full Career Timeline <Clock size={14} className="group-hover:rotate-12 transition-transform" />
+                        </Link>
                     </motion.div>
                     <motion.p
                         initial={{ opacity: 0 }}

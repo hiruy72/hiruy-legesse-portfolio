@@ -1,5 +1,54 @@
 export const projects = [
     {
+        id: 'hospital-management',
+        title: 'Hospital Management System',
+        desc: 'A full-stack hospital management web application designed to streamline patient registration, doctor management, and appointment scheduling.',
+        longDesc: 'This comprehensive Hospital Management System is built to optimize healthcare workflows. It features a robust patient portal for registrations, a dedicated module for doctor scheduling, and an intuitive dashboard for administrative oversight. The platform ensures data integrity and provides real-time updates for appointment status, making it a critical tool for modern medical facilities.',
+        tags: ['Next.js', 'Convex', 'Clerk', 'Tailwind CSS'],
+        image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://hospital-managment-web-app.vercel.app/',
+        codeLink: 'https://github.com/hiruy72/Hospital-Managment-Web-app',
+        year: '2024',
+        features: ['Automated Patient Registration', 'Doctor Schedule Management', 'Secure Medical Records', 'Real-time Appointment Tracking']
+    },
+    {
+        id: 'trading-analysis',
+        title: 'Trading Market Analysis App',
+        desc: 'A sophisticated market analysis platform that provides real-time Buy, Sell, and Hold signals for Forex and Crypto traders.',
+        longDesc: 'The Trading Market Analysis App is a high-performance tool designed for modern traders. It leverages advanced technical indicators to generate precision Buy, Sell, and Hold signals across Forex and Cryptocurrency markets. Built with a focus on speed and accuracy, the platform features real-time data visualization and a clean, financial-focused dashboard that allows users to analyze market psychology and execute informed trades with confidence.',
+        tags: ['Next.js', 'Django', 'React', 'Tailwind CSS'],
+        image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://trading-analysis-app-neon.vercel.app/',
+        codeLink: 'https://github.com/hiruy72/trading-analysis-app',
+        year: '2024',
+        features: ['Precision Signal Generation (Buy/Sell/Hold)', 'Forex & Crypto Market Coverage', 'Real-time Signal Dashboards', 'Advanced Technical Analysis Indicators']
+    },
+    {
+        id: 'restaurant-management',
+        title: 'Restaurant Management System',
+        desc: 'A web-based system designed to manage orders, menus, and operational workflows for modern dining establishments.',
+        longDesc: 'This Restaurant Management System streamlines the complex operations of a busy dining environment. It provides a centralized platform for menu management, order tracking from kitchen to table, and detailed operational reporting. Built to simulate real-world business logic, the system offers administrative control panels that simplify staff management and inventory tracking.',
+        tags: ['React', 'Node.js', 'JWT', 'Tailwind CSS'],
+        image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1600',
+        liveLink: '#',
+        codeLink: 'https://github.com/hiruy72/resturant-management',
+        status: 'Demo coming soon',
+        year: '2024',
+        features: ['Dynamic Menu & Order Control', 'Administrative Control Panels', 'Kitchen Workflow Management', 'Sales & Inventory Analysis']
+    },
+    {
+        id: 'personal-portfolio',
+        title: 'Personal Portfolio Website',
+        desc: 'My personal developer portfolio built using modern web technologies to showcase projects, technical skills, and professional experience.',
+        longDesc: 'This portfolio is a reflection of my journey as a developer. Built with a focus on high-end aesthetics and smooth user experience, it showcases my technical projects and professional achievements. The site utilizes cutting-edge web technologies like Framer Motion for animations and Tailwind CSS for precise styling, ensuring a memorable impression on every visitor.',
+        tags: ['React', 'Framer Motion', 'Tailwind CSS', 'Vite'],
+        image: '/Hiruy Legesse.png',
+        liveLink: 'https://hiruy-legesse-portfolio.vercel.app/',
+        codeLink: 'https://github.com/hiruy72/hiruy-legesse-portfolio',
+        year: '2025',
+        features: ['Interactive Project Showcase', 'Modern Design Aesthetics', 'Responsive Technical Portfolio', 'Smooth Framer Motion Transitions']
+    },
+    {
         id: 'ai-mock-interview',
         title: 'AI Mock Interview Platform',
         desc: 'An upcoming AI-powered platform built with Next.js, TypeScript, and VAPI. Users will be able to practice mock interviews and receive feedback.',

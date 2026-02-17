@@ -83,6 +83,14 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.6 }}
                             className="flex flex-wrap gap-8 items-center"
                         >
+                            <a
+                                href="/#projects"
+                                className="h-16 px-10 bg-foreground text-background flex items-center justify-center rounded-full font-black uppercase tracking-widest text-xs gap-4 hover:scale-105 active:scale-95 transition-all shadow-xl group overflow-hidden relative"
+                            >
+                                <span className="relative z-10">Explore Projects</span>
+                                <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
+                                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                            </a>
 
 
                             <div className="flex items-center gap-10">

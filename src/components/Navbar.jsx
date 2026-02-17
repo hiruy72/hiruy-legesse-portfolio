@@ -16,13 +16,13 @@ const Navbar = ({ theme, toggleTheme }) => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '/', isInternal: true },
-        { name: 'About', href: '#about', isInternal: true },
-        { name: 'Tech Stack', href: '#tech-stack', isInternal: true },
-        { name: 'Projects', href: '#projects', isInternal: true },
-        { name: 'Experience', href: '#experience', isInternal: true },
-        { name: 'Certificates', href: '/credentials' },
-        { name: 'Contact', href: '/contact' },
+        { name: 'Home', href: '/', isPage: true },
+        { name: 'About', href: '/about', isPage: true },
+        { name: 'Tech Stack', href: '/tech-stack', isPage: true },
+        { name: 'Projects', href: '/projects', isPage: true },
+        { name: 'Experience', href: '/experience', isPage: true },
+        { name: 'Certificates', href: '/credentials', isPage: true },
+        { name: 'Contact', href: '/contact', isPage: true },
     ];
 
     const isHome = location.pathname === '/';
@@ -45,7 +45,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <div className="hidden md:flex items-center gap-8">
                     <div className="flex items-center gap-6">
                         {navLinks.map((link) => (
-                            link.isInternal ? (
+                            !link.isPage ? (
                                 <a
                                     key={link.name}
                                     href={link.href}
@@ -96,7 +96,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             {isOpen && (
                 <div className="md:hidden fixed inset-0 top-[72px] bg-background/95 backdrop-blur-2xl z-[90] flex flex-col p-8 gap-8 animate-in fade-in slide-in-from-top-4 duration-300">
                     {navLinks.map((link) => (
-                        link.isInternal ? (
+                        !link.isPage ? (
                             <a
                                 key={link.name}
                                 href={link.href}

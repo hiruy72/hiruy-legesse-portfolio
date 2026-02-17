@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Zap } from 'lucide-react';
 
 const techStack = [
     {
         category: 'Programming Languages',
         items: [
             { name: 'Python', icon: 'python-original' },
+            { name: 'Django', icon: 'django-plain', invertDark: true },
             { name: 'Java', icon: 'java-original' },
             { name: 'JavaScript', icon: 'javascript-original' },
             { name: 'C++', icon: 'cplusplus-original' }
@@ -14,6 +17,7 @@ const techStack = [
         category: 'Web Development',
         items: [
             { name: 'Next.js', icon: 'nextjs-original', invertDark: true },
+            { name: 'Nest.js', icon: 'nestjs-plain' },
             { name: 'React', icon: 'react-original' },
             { name: 'Node.js', icon: 'nodejs-original' },
             { name: 'Express.js', icon: 'express-original', invertDark: true },
@@ -60,9 +64,15 @@ const TechStack = () => {
                     className="mb-24"
                 >
                     <h2 className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-6">Technical Arsenal</h2>
-                    <h3 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase">
+                    <h3 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase mb-12">
                         TECH <br /> <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">STACK.</span>
                     </h3>
+                    <Link
+                        to="/tech-stack"
+                        className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group"
+                    >
+                        Explore Arsenal <Zap size={14} className="group-hover:rotate-12 transition-transform" />
+                    </Link>
                 </motion.div>
 
                 <div className="grid gap-16 md:gap-24">

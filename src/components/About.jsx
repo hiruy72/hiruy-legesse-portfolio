@@ -1,5 +1,6 @@
-import { Download, Terminal, Layers, Cpu, Globe } from 'lucide-react';
+import { Download, Terminal, Layers, Cpu, Globe, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
@@ -29,7 +30,7 @@ const About = () => {
 
                         <div className="space-y-10 max-w-2xl">
                             <p className="text-xl md:text-2xl text-foreground font-bold leading-relaxed">
-                                I am Hiruy Legesse, a Software Engineer based in Ethiopia. I specialize in building digital bridges that connect industrial efficiency with human-centric design.
+                                I am Hiruy Legesse Adane, a Software Engineering student architecture-focused on <span className="text-muted-foreground italic">scalable back-end systems</span> and distributed AI.
                             </p>
                         </div>
 
@@ -37,7 +38,7 @@ const About = () => {
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mt-20">
                             {[
                                 { label: 'Location', value: 'Addis Ababa, ET', icon: <Globe size={14} /> },
-                                { label: 'Specialty', value: 'Full Stack / UI', icon: <Terminal size={14} /> },
+                                { label: 'Track', value: 'Back-end / ML', icon: <Terminal size={14} /> },
                                 { label: 'Education', value: 'AAU SE Dept', icon: <Layers size={14} /> }
                             ].map((stat, i) => (
                                 <div key={i} className="group flex flex-col gap-4">
@@ -51,7 +52,7 @@ const About = () => {
                             ))}
                         </div>
 
-                        <div className="mt-20">
+                        <div className="mt-20 flex flex-wrap gap-8 items-center">
                             <a
                                 href="/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf"
                                 download="Hiruy-Legesse-Resume.pdf"
@@ -62,6 +63,13 @@ const About = () => {
                                 </span>
                                 <div className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                             </a>
+
+                            <Link
+                                to="/about"
+                                className="text-[10px] font-black uppercase tracking-widest border-b border-foreground pb-1 flex items-center gap-2 hover:text-muted-foreground hover:border-muted-foreground transition-all"
+                            >
+                                Detailed Genesis <Sparkles size={14} />
+                            </Link>
                         </div>
                     </motion.div>
 

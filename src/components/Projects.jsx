@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Github, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, Github, Globe, ChevronLeft, ChevronRight, Layers } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
@@ -49,9 +49,15 @@ const Projects = () => {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-6">Masterpiece Gallery</h2>
-                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase">
+                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase mb-12">
                             Selected <br /> <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">Works.</span>
                         </h3>
+                        <Link
+                            to="/projects"
+                            className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group"
+                        >
+                            Explore Full Archive <Layers size={14} className="group-hover:translate-y-[-2px] transition-transform" />
+                        </Link>
                     </motion.div>
 
                     <div className="flex gap-4 mb-4">
@@ -144,11 +150,13 @@ const Projects = () => {
                                     </Link>
                                     <a
                                         href={projects[currentIndex].liveLink}
-                                        target="_blank"
+                                        target={projects[currentIndex].liveLink === '#' ? '_self' : '_blank'}
                                         rel="noopener noreferrer"
-                                        className="text-lg font-black uppercase tracking-widest border-b-[3px] border-foreground pb-2 flex items-center gap-3 hover:text-muted-foreground hover:border-muted-foreground transition-all"
+                                        onClick={(e) => projects[currentIndex].liveLink === '#' && e.preventDefault()}
+                                        className={`text-lg font-black uppercase tracking-widest border-b-[3px] pb-2 flex items-center gap-3 transition-all ${projects[currentIndex].liveLink === '#' ? 'border-muted-foreground/30 text-muted-foreground/50 cursor-not-allowed' : 'border-foreground hover:text-muted-foreground hover:border-muted-foreground'}`}
                                     >
-                                        Live Preview <Globe size={24} />
+                                        {projects[currentIndex].liveLink === '#' ? (projects[currentIndex].status || 'Demo Not Available') : 'Live Preview'}
+                                        {projects[currentIndex].liveLink !== '#' && <Globe size={24} />}
                                     </a>
                                 </div>
                             </div>

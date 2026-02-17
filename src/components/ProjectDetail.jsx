@@ -166,14 +166,18 @@ const ProjectDetail = () => {
                             <div className="flex flex-col gap-8 pt-10">
                                 <a
                                     href={project.liveLink}
-                                    target="_blank"
+                                    target={project.liveLink === '#' ? '_self' : '_blank'}
                                     rel="noopener noreferrer"
-                                    className="group relative h-24 bg-foreground text-background flex items-center justify-center rounded-3xl font-black uppercase tracking-[0.3em] text-xs gap-6 hover:scale-105 active:scale-95 transition-all shadow-[0_30px_60px_rgba(0,0,0,0.3)] dark:shadow-[0_30px_60px_rgba(255,255,255,0.05)] overflow-hidden"
+                                    onClick={(e) => project.liveLink === '#' && e.preventDefault()}
+                                    className={`group relative h-24 flex items-center justify-center rounded-3xl font-black uppercase tracking-[0.3em] text-xs gap-6 transition-all shadow-[0_30px_60px_rgba(0,0,0,0.3)] dark:shadow-[0_30px_60px_rgba(255,255,255,0.05)] overflow-hidden ${project.liveLink === '#' ? 'bg-muted/50 text-muted-foreground cursor-not-allowed border border-border' : 'bg-foreground text-background hover:scale-105 active:scale-95'}`}
                                 >
                                     <span className="relative z-10 flex items-center gap-4">
-                                        Launch Project <Globe size={18} className="group-hover:rotate-12 transition-transform" />
+                                        {project.liveLink === '#' ? (project.status || 'Live Demo Not Available') : 'Launch Project'}
+                                        {project.liveLink !== '#' && <Globe size={18} className="group-hover:rotate-12 transition-transform" />}
                                     </span>
-                                    <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                                    {project.liveLink !== '#' && (
+                                        <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                                    )}
                                 </a>
 
                                 {project.codeLink !== '#' && (

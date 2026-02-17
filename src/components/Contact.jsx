@@ -1,8 +1,11 @@
-import { Send, ArrowUpRight, Github, Linkedin, Mail, Twitter, ChevronUp, CheckCircle } from 'lucide-react';
+import { Send, ArrowUpRight, Github, Linkedin, Mail, Twitter, ChevronUp, CheckCircle, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 
 const Contact = () => {
+    const location = useLocation();
+    const isDedicatedPage = location.pathname === '/contact';
     const [isSent, setIsSent] = useState(false);
 
     const scrollToTop = () => {
@@ -32,6 +35,13 @@ const Contact = () => {
             </div>
 
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
+                {isDedicatedPage && (
+                    <div className="pt-20 mb-12">
+                        <Link to="/" className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group">
+                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return Home
+                        </Link>
+                    </div>
+                )}
                 <div className="flex flex-col md:flex-row justify-between items-start gap-24 mb-32">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -60,7 +70,8 @@ const Contact = () => {
                                 {[
                                     { icon: <Github size={24} />, href: "https://github.com/hiruy72", label: 'Github' },
                                     { icon: <Linkedin size={24} />, href: "https://linkedin.com/in/hiruy-legesse", label: 'Linkedin' },
-                                    { icon: <Mail size={24} />, href: "mailto:hiruyadane@gmail.com", label: 'Email' }
+                                    { icon: <Mail size={24} />, href: "mailto:hiruyadane@gmail.com", label: 'Email' },
+                                    { icon: <div className="text-[10px] font-black">+251</div>, href: "tel:+251939776522", label: 'Mobile' }
                                 ].map((item, i) => (
                                     <a
                                         key={i}

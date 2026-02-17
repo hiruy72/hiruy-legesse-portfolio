@@ -9,6 +9,10 @@ import ProjectDetail from './components/ProjectDetail';
 import Experience from './components/Experience';
 import Certificates from './components/Certificates';
 import AllCertificates from './components/AllCertificates';
+import AboutPage from './components/AboutPage';
+import TechStackPage from './components/TechStackPage';
+import AllProjects from './components/AllProjects';
+import ExperiencePage from './components/ExperiencePage';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -54,6 +58,10 @@ function App() {
                                     <Contact />
                                 </>
                             } />
+                            <Route path="/about" element={<AboutPage />} />
+                            <Route path="/tech-stack" element={<TechStackPage />} />
+                            <Route path="/projects" element={<AllProjects />} />
+                            <Route path="/experience" element={<ExperiencePage />} />
                             <Route path="/credentials" element={<AllCertificates />} />
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/project/:id" element={<ProjectDetail />} />

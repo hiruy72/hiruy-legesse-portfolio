@@ -63,17 +63,12 @@ const AllCertificates = () => {
             <div className="absolute top-0 right-0 w-1/2 h-screen bg-muted/5 -z-10 blur-3xl"></div>
 
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-                <MotionLink
+                <Link
                     to="/"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="inline-flex items-center gap-4 text-xs font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all mb-20 group"
+                    className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group mb-12"
                 >
-                    <div className="w-8 h-8 border border-border rounded-full flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-colors">
-                        <ArrowLeft size={14} />
-                    </div>
-                    Back to Selection
-                </MotionLink>
+                    <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return Home
+                </Link>
 
                 <div className="mb-32">
                     <motion.h2
