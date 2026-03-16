@@ -47,7 +47,7 @@ const AboutPage = () => {
                                 <div className="w-12 h-[1px] bg-muted-foreground/40"></div> The Narrative
                             </h2>
                             <p className="text-3xl md:text-5xl font-black leading-[1.1] tracking-tighter text-foreground">
-                                I am Hiruy Legesse Adane, a Software Engineering student architecture-focused on <span className="text-muted-foreground italic">scalable back-end systems</span>.
+                                I am Hiruy Legesse Adane, a Software Engineering student architecture-focused on <span className="text-muted-foreground italic">UI/UX, Full Stack development, and scalable back-end systems</span>.
                             </p>
                             <div className="space-y-8 text-lg text-muted-foreground font-medium leading-relaxed max-w-3xl">
                                 <p>
@@ -62,7 +62,7 @@ const AboutPage = () => {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-1px bg-border border border-border rounded-[2rem] overflow-hidden">
                             {[
                                 { label: 'Top Tier', icon: <Award /> },
-                                { label: 'Back-end Dept', icon: <Terminal /> },
+                                { label: 'UI/UX & Full Stack', icon: <Terminal /> },
                                 { label: 'Scalability', icon: <Zap /> },
                                 { label: 'CS Foundations', icon: <Layers /> }
                             ].map((value, i) => (
@@ -93,7 +93,7 @@ const AboutPage = () => {
                                     { label: 'Base of Op', value: 'Addis Ababa, ETH' },
                                     { label: 'Academic Rank', value: 'Top Percentile' },
                                     { label: 'Education', value: 'AAU SE Dept' },
-                                    { label: 'Specialty', value: 'Back-end / ML' }
+                                    { label: 'Specialty', value: 'UI/UX / Full Stack / Back-end' }
                                 ].map((intel, i) => (
                                     <div key={i} className="flex justify-between items-center">
                                         <span className="text-[8px] font-black uppercase tracking-widest text-muted-foreground/60">{intel.label}</span>

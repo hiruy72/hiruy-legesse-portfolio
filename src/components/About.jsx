@@ -30,7 +30,7 @@ const About = () => {
 
                         <div className="space-y-10 max-w-2xl">
                             <p className="text-xl md:text-2xl text-foreground font-bold leading-relaxed">
-                                I am Hiruy Legesse Adane, a Software Engineering student architecture-focused on <span className="text-muted-foreground italic">scalable back-end systems</span> and distributed AI.
+                                I am Hiruy Legesse Adane, a Software Engineering student architecture-focused on <span className="text-muted-foreground italic">UI/UX, Full Stack development, scalable back-end systems</span>, and distributed AI.
                             </p>
                         </div>
 
@@ -38,7 +38,7 @@ const About = () => {
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mt-20">
                             {[
                                 { label: 'Location', value: 'Addis Ababa, ET', icon: <Globe size={14} /> },
-                                { label: 'Track', value: 'Back-end / ML', icon: <Terminal size={14} /> },
+                                { label: 'Track', value: 'UI/UX / Full Stack / Back-end', icon: <Terminal size={14} /> },
                                 { label: 'Education', value: 'AAU SE Dept', icon: <Layers size={14} /> }
                             ].map((stat, i) => (
                                 <div key={i} className="group flex flex-col gap-4">
