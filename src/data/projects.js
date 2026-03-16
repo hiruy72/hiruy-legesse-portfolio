@@ -132,6 +132,28 @@ export const projects = [
         codeLink: '#',
         features: ['Peer Matching Algorithm', 'Real-time Canvas Concept', 'Education Statistics Dashboard', 'Gamified Learning Paths']
     },
+    {
+        id: 'smart-ai-student-portal',
+        title: 'Smart AI Student Portal',
+        desc: 'A modern mobile application designed to help university students organize their academic life, track assignments, and plan study schedules.',
+        longDesc: 'Smart AI Student Portal allows students to manage courses, track assignments, plan study schedules, and receive reminders about deadlines and important events. It includes AI-powered features such as a study planner and a chatbot that assist students with learning and productivity. The app provides tools like a dashboard overview, calendar, task manager, notifications, and profile settings to improve student productivity through a clean mobile interface.',
+        tags: ['Figma', 'UI/UX Design', 'Mobile App', 'AI'],
+        image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.figma.com/design/PraIWekUslpDcqxAWQXDTJ/Smart-Portal?node-id=4-301&t=EXpTQxIZ6E9NDR53-0',
+        codeLink: '#',
+        features: ['AI-Powered Study Planner', 'Intelligent Chatbot Assistant', 'Comprehensive Dashboard Overview', 'Academic Event & Deadline Reminders']
+    },
+    {
+        id: 'delivery-web-app',
+        title: 'Delivery Web App Design',
+        desc: 'A modern Figma design for a comprehensive delivery and logistics web application focusing on order tracking, management, and user experience.',
+        longDesc: 'The Delivery Web App design provides a complete user interface system for a modern logistics platform. It features an intuitive dashboard for tracking orders, managing deliveries, and viewing analytics. The design emphasizes clean typography, clear data visualization, and a streamlined order management flow, making the delivery process efficient for both businesses and couriers.',
+        tags: ['Figma', 'UI/UX Design', 'Web App', 'Logistics'],
+        image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.figma.com/design/fCWCK9c5XNonT6bmdyXlpa/Delivery-webapp?node-id=0-1&p=f&t=xB0D2ua0ZnA0ZJkg-0',
+        codeLink: '#',
+        features: ['Order Tracking Dashboard', 'Delivery Route Visualization', 'Courier Management Interface', 'Logistics Analytics']
+    }
 ];
 
 
