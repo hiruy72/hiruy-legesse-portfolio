@@ -153,6 +153,39 @@ export const projects = [
         liveLink: 'https://www.figma.com/design/fCWCK9c5XNonT6bmdyXlpa/Delivery-webapp?node-id=0-1&p=f&t=xB0D2ua0ZnA0ZJkg-0',
         codeLink: '#',
         features: ['Order Tracking Dashboard', 'Delivery Route Visualization', 'Courier Management Interface', 'Logistics Analytics']
+    },
+    {
+        id: 'banking-app-design',
+        title: 'Banking App Design',
+        desc: 'A sleek and modern Figma design for a mobile banking application, focusing on secure transactions, account management, and an intuitive user interface.',
+        longDesc: 'The Banking App design offers a premium, user-centric mobile banking experience. It incorporates seamless navigation for checking balances, transferring funds, and reviewing transaction histories. The interface highlights financial clarity with modern typography, secure authentication flows, and interactive financial dashboards tailored for optimal mobile usability.',
+        tags: ['Figma', 'UI/UX Design', 'Mobile App', 'Fintech'],
+        image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.figma.com/design/9g6efFPprpzbKZzjQnRvoA/Banking-App?t=KUKhY3HnONjMLTL7-0',
+        codeLink: '#',
+        features: ['Secure Account Dashboard', 'Seamless Fund Transfers', 'Transaction History Visualization', 'Modern Mobile Fintech UI']
+    },
+    {
+        id: 'health-tracking-app',
+        title: 'Health Tracking App Design',
+        desc: 'A comprehensive Figma design for a health and fitness tracking application, emphasizing user wellness and activity monitoring.',
+        longDesc: 'The Health Tracking App design focuses on empowering users to monitor their daily wellness journeys. It features clean, data-driven interfaces for tracking workouts, nutrition, and vital signs. By employing a vibrant yet calming aesthetic, the design encourages consistent user engagement through visual progress indicators, intuitive goal-setting flows, and a personalized health dashboard.',
+        tags: ['Figma', 'UI/UX Design', 'Mobile App', 'Health & Fitness'],
+        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.figma.com/design/yNqPr5Fbs6rSSwb3jcpjuz/Helath-Tracking-App?node-id=0-1&p=f&t=KUKhY3HnONjMLTL7-0',
+        codeLink: '#',
+        features: ['Personalized Wellness Dashboard', 'Workout and Activity Tracking', 'Nutrition and Vital Logs', 'Visual Goal Progress Indicators']
+    },
+    {
+        id: 'shopping-app-design',
+        title: 'Shopping App Design',
+        desc: 'A modern and intuitive Figma design for an e-commerce shopping application to enhance the mobile retail experience.',
+        longDesc: 'The Shopping App design aims to provide a seamless and visually engaging e-commerce experience tailored for mobile users. It features dynamic product discovery, streamlined checkout flows, and personalized recommendations. The interface leverages contemporary design trends like soft shadows, distinct product carousels, and an accessible layout to maximize user conversion and satisfaction.',
+        tags: ['Figma', 'UI/UX Design', 'Mobile App', 'E-commerce'],
+        image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.figma.com/design/FJ00IfWLfXjv0eR6AB8Ea0/Shopping-app?node-id=0-1&p=f&t=65Mxs3sHpf2fnt23-0',
+        codeLink: '#',
+        features: ['Dynamic Product Discovery', 'Streamlined Checkout Flow', 'Personalized Product Recommendations', 'Contemporary Mobile E-commerce UI']
     }
 ];
 
