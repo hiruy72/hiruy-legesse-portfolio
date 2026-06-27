@@ -8,43 +8,29 @@ const experiences = [
         role: 'AI and Software Developer',
         duration: 'Dec 2025 – Present',
         location: 'Addis Ababa, Ethiopia',
-        desc: 'Building AI-driven and full-stack software solutions using Python, React, Node.js, and Next.js. Working across backend systems, frontend interfaces, and intelligent features that support real-world applications.'
+        desc: 'Worked at Riftronix, developing software and AI solutions using Python, React, Node.js, and Next.js for various projects.'
+    },
+    {
+        company: 'Eyoha Digital',
+        role: 'Full-Stack Developer',
+        duration: 'Jan 2026 – Mar 2026',
+        location: 'Addis Ababa, Ethiopia',
+        desc: 'Developed and maintained web applications using React, Next.js, Node.js, and MongoDB. Built RESTful APIs and implemented database-driven functionality.'
+    },
+    {
+        company: 'Shalops Digitals',
+        role: 'Full-Stack Developer',
+        duration: 'Feb 2024 – Nov 2025',
+        location: 'Addis Ababa, Ethiopia',
+        desc: 'Designed and developed full-stack web applications and backend services. Implemented responsive user interfaces, scalable server-side functionality, and integrated third-party services and databases.'
     },
     {
         company: 'iCog Labs',
-        role: 'AI Intern (MOSES Team)',
-        duration: 'Jan 2026 – Present',
+        role: 'AI Research & Development Intern',
+        duration: 'Jan 2024 – May 2024',
         location: 'Addis Ababa, Ethiopia',
-        desc: 'Contributing to AI research and development within the MOSES team. Gaining hands-on experience in machine learning systems, optimization techniques, and scalable software design.'
+        desc: 'Contributed to AI research and development projects as part of the MOSES team. Assisted with model evaluation, experimentation, and data processing tasks.'
     },
-    {
-        company: 'Eyoha Digitals',
-        role: 'UI/UX Designer Intern',
-        duration: 'Aug 2025 – Jan 2026',
-        location: 'Addis Ababa, Ethiopia',
-        desc: 'Designed user-centered interfaces for web and mobile products. Created wireframes, prototypes, and improved usability through iterative testing and feedback.'
-    },
-    {
-        company: 'Shalops',
-        role: 'UI/UX Intern',
-        duration: 'Sep 2025 – Dec 2025',
-        location: 'Addis Ababa, Ethiopia',
-        desc: 'Supported UI design and user experience improvements for digital products. Collaborated closely with developers to ensure smooth design-to-development handoff.'
-    },
-    {
-        company: 'Addis Ababa University',
-        role: 'Robotics Team Member',
-        duration: 'Feb 2025 – Nov 2025',
-        location: 'Addis Ababa, Ethiopia',
-        desc: 'Designed and programmed robotic systems using Python and control algorithms. Worked on logic design, hardware integration, and system testing.'
-    },
-    {
-        company: 'Independent Developer',
-        role: 'Full Stack Developer',
-        duration: 'Jan 2022 – Present',
-        location: 'Remote',
-        desc: 'Developing personal and academic projects using React, Node.js, Next.js, and Python. Focused on building complete systems from idea to deployment.'
-    }
 ];
 
 const Experience = () => {

@@ -9,91 +9,61 @@ const experiences = [
         role: 'AI and Software Developer',
         duration: 'Dec 2025 – Present',
         location: 'Addis Ababa, Ethiopia',
-        type: 'Senior Deployment',
-        stack: ['Next.js', 'Python', 'AI/ML', 'Node.js', 'Nest.js'],
-        desc: 'Architecting and deploying AI-driven full-stack solutions. Responsible for end-to-end development of intelligent systems.',
+        type: 'Current Role',
+        stack: ['Python', 'React', 'Node.js', 'Next.js', 'AI/ML'],
+        desc: 'Developing software and AI solutions using Python, React, Node.js, and Next.js for various projects.',
         details: [
-            'Developing low-latency voice AI interaction pipelines with real-time feedback systems.',
-            'Architecting scalable backend systems for data-intensive applications using Nest.js and Django.',
-            'Collaborating on high-level UI component libraries for internal tools to streamline development workflow.'
+            'Worked on AI-powered features and software products using Python and modern JavaScript frameworks.',
+            'Developed full-stack web applications with React and Next.js on the frontend and Node.js on the backend.',
+            'Contributed to diverse client projects involving intelligent system design and scalable software architecture.'
         ],
         icon: <Target size={24} />
     },
     {
-        company: 'iCog Labs',
-        role: 'AI Intern (MOSES Team)',
-        duration: 'Jan 2026 – Present',
+        company: 'Eyoha Digital',
+        role: 'Full-Stack Developer',
+        duration: 'Jan 2026 – Mar 2026',
         location: 'Addis Ababa, Ethiopia',
-        type: 'Research Internship',
-        stack: ['ML Systems', 'Optimization', 'Python', 'Evolutionary Search'],
-        desc: 'Contributing to world-class AI research within the MOSES (Meta-Optimizing Semantic Evolutionary Search) team.',
+        type: 'Full-Stack Development',
+        stack: ['React', 'Next.js', 'Node.js', 'MongoDB', 'REST APIs'],
+        desc: 'Developed and maintained web applications using React, Next.js, Node.js, and MongoDB.',
         details: [
-            'Analyzing and optimizing large-scale evolutionary search algorithms for complex problem solving.',
-            'Implementing machine learning models for predictive analysis and pattern recognition.',
-            'Researching scalable software design for distributed AI systems to handle massive datasets.'
-        ],
-        icon: <Award size={24} />
-    },
-    {
-        company: 'Eyoha Digitals',
-        role: 'UI/UX Designer Intern',
-        duration: 'Aug 2025 – Jan 2026',
-        location: 'Addis Ababa, Ethiopia',
-        type: 'Design Internship',
-        stack: ['Figma', 'Prototyping', 'User Psychology'],
-        desc: 'Pioneering design-led development for diverse digital agency clients.',
-        details: [
-            'Created responsive design systems for mobile and web platforms using atomic design principles.',
-            'Conducted user psychology research and usability testing to improve conversion rates.',
-            'Delivered high-fidelity prototypes that reduced dev handoff time by 30%.'
+            'Developed and maintained full-stack web applications using React, Next.js, Node.js, and MongoDB.',
+            'Built RESTful APIs and implemented database-driven functionality to support dynamic application features.',
+            'Collaborated with cross-functional teams to deliver scalable and maintainable software solutions.'
         ],
         icon: <Code size={24} />
     },
     {
-        company: 'Shalops',
-        role: 'UI/UX Intern',
-        duration: 'Sep 2025 – Dec 2025',
+        company: 'Shalops Digitals',
+        role: 'Full-Stack Developer',
+        duration: 'Feb 2024 – Nov 2025',
         location: 'Addis Ababa, Ethiopia',
-        type: 'Professional Internship',
-        stack: ['UI Design', 'UX Research', '协作'],
-        desc: 'Supported UI design and user experience improvements for industrial digital products.',
+        type: 'Full-Stack Development',
+        stack: ['React', 'Node.js', 'PostgreSQL', 'REST APIs', 'Third-Party Integrations'],
+        desc: 'Designed and developed full-stack web applications and scalable backend services.',
         details: [
-            'Refined interface consistency across multiple legacy enterprise platforms.',
-            'Collaborated closely with developers to ensure smooth design-to-development handoff.',
-            'Created comprehensive documentation for newly implemented design patterns.'
+            'Designed and developed full-stack web applications and backend services from the ground up.',
+            'Implemented responsive user interfaces and scalable server-side functionality for various clients.',
+            'Integrated third-party services and databases into software solutions to extend product capabilities.'
         ],
         icon: <Briefcase size={24} />
     },
     {
-        company: 'Addis Ababa University',
-        role: 'Robotics Team Member',
-        duration: 'Feb 2025 – Nov 2025',
+        company: 'iCog Labs',
+        role: 'AI Research & Development Intern',
+        duration: 'Jan 2024 – May 2024',
         location: 'Addis Ababa, Ethiopia',
-        type: 'Hardware & Logic',
-        stack: ['Python', 'Robotics', 'Control Algorithms'],
-        desc: 'Designed and programmed robotic systems using Python and advanced control logic.',
+        type: 'Research Internship',
+        stack: ['Python', 'ML Systems', 'MOSES', 'Data Processing', 'Model Evaluation'],
+        desc: 'Contributed to AI research and development projects as part of the MOSES team.',
         details: [
-            'Developed navigation state machines for autonomous robotic maneuvers.',
-            'Worked on hardware-software integration protocols for low-latency sensory input.',
-            'Participated in system testing and iterative logic debugging sessions.'
+            'Contributed to AI research and development projects as part of the MOSES (Meta-Optimizing Semantic Evolutionary Search) team.',
+            'Assisted with model evaluation, experimentation, and data processing tasks to support ongoing AI research.',
+            'Gained hands-on exposure to machine learning systems and optimization techniques in a research environment.'
         ],
-        icon: <Target size={24} />
+        icon: <Award size={24} />
     },
-    {
-        company: 'Independent Developer',
-        role: 'Full Stack Developer',
-        duration: 'Jan 2022 – Present',
-        location: 'Remote',
-        type: 'Freelance / Open Source',
-        stack: ['React', 'Node.js', 'Next.js', 'Django', 'PostgreSQL'],
-        desc: 'Developing personal and academic projects from initial ideation to cloud deployment.',
-        details: [
-            'Built and maintained multiple open-source web applications using the MERN and T3 stacks.',
-            'Implemented secure authentication and database schemas for real-world user traffic.',
-            'Continuously exploring new architectural patterns e.g., micro-services and serverless logic.'
-        ],
-        icon: <Terminal size={24} />
-    }
 ];
 
 const ExperiencePage = () => {
