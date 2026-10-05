@@ -62,11 +62,11 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.15 }}
-                        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.95] mb-8"
+                        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.95] mb-6"
                     >
-                        <span className="text-gradient-micro1">Crafting Digital</span>
+                        <span className="text-gradient-micro1">Hiruy Legesse</span>
                         <br />
-                        <span className="text-gradient-accent">Experiences</span>
+                        <span className="text-gradient-accent text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold block mt-3">Software Developer</span>
                     </motion.h1>
 
                     {/* Subtitle */}
@@ -74,12 +74,9 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-lg md:text-xl text-white/40 max-w-xl leading-relaxed mb-12 font-medium"
+                        className="text-base sm:text-lg md:text-xl text-white/50 max-w-2xl leading-relaxed mb-12 font-medium"
                     >
-                        Software Engineer specializing in{' '}
-                        <span className="text-white/70">full-stack development</span> and{' '}
-                        <span className="text-white/70">UI/UX design</span> to build
-                        high-performance web products.
+                        Software Developer specializing in <span className="text-white/80">full-stack web and mobile applications</span>, <span className="text-white/80">backend development</span>, <span className="text-white/80">REST APIs</span>, and <span className="text-white/80">AI-powered systems</span>.
                     </motion.p>
 
                     {/* CTA Buttons */}

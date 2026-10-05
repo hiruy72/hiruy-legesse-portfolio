@@ -31,7 +31,7 @@ const About = () => {
 
                         <div className="space-y-6 mb-10">
                             <p className="text-base md:text-lg text-white/50 leading-relaxed">
-                                I am <span className="text-white/80 font-semibold">Hiruy Legesse Adane</span>, a Software Engineering student focused on UI/UX, Full Stack development, scalable back-end systems, and distributed AI.
+                                I am <span className="text-white/80 font-semibold">Hiruy Legesse</span>, a software developer specializing in full-stack web and mobile applications, backend development, REST APIs, and AI-powered systems.
                             </p>
                         </div>
 

@@ -10,7 +10,10 @@ const ProjectDetail = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+        if (project) {
+            document.title = `${project.title} | Hiruy Legesse`;
+        }
+    }, [project]);
 
     if (!project) return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-[#050507] text-white p-6">

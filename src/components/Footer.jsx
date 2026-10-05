@@ -23,7 +23,7 @@ const Footer = () => {
                             <span className="font-bold text-lg text-white tracking-tight">Hiruy Legesse</span>
                         </Link>
                         <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
-                            Full-Stack Software Engineer & AI Developer. Designing and building high-performance systems, scalable cloud apps, and next-gen AI interfaces.
+                            Software Developer specializing in full-stack web and mobile applications, backend development, REST APIs, and AI-powered systems.
                         </p>
                     </div>
 

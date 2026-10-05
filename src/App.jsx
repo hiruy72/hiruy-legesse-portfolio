@@ -28,6 +28,30 @@ function ScrollToTop() {
                 element.scrollIntoView({ behavior: 'smooth' });
             }
         }
+
+        const titles = {
+            '/': 'Hiruy Legesse | Software Developer',
+            '/about': 'About | Hiruy Legesse',
+            '/projects': 'Projects | Hiruy Legesse',
+            '/experience': 'Experience | Hiruy Legesse',
+            '/tech-stack': 'Tech Stack | Hiruy Legesse',
+            '/credentials': 'Certifications & Credentials | Hiruy Legesse',
+            '/contact': 'Contact | Hiruy Legesse'
+        };
+
+        if (titles[pathname]) {
+            document.title = titles[pathname];
+        } else if (!pathname.startsWith('/project/')) {
+            document.title = 'Hiruy Legesse | Software Developer';
+        }
+
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+            canonical = document.createElement('link');
+            canonical.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonical);
+        }
+        canonical.setAttribute('href', `https://www.hiruylegesse.me${pathname === '/' ? '/' : pathname}`);
     }, [pathname, hash]);
 
     return null;
