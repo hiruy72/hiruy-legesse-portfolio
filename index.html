@@ -98,11 +98,78 @@
 </head>
 
 <body>
+    <!-- Static HTML for Google crawlers — React replaces this on load -->
     <div id="root">
-        <noscript>
-            <h1>Hiruy Legesse | Software Developer</h1>
-            <p>Hiruy Legesse is a software developer specializing in full-stack web and mobile applications, backend development, REST APIs, and AI-powered systems.</p>
-        </noscript>
+        <header style="display:none" aria-hidden="true">
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/projects">Projects</a>
+                <a href="/experience">Experience</a>
+                <a href="/credentials">Credentials</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </header>
+
+        <main style="display:none" aria-hidden="true">
+            <section id="hero">
+                <h1>Hiruy Legesse | Software Developer</h1>
+                <p>Full-stack software developer specializing in web applications, mobile apps, backend systems, REST APIs, and AI-powered solutions. Based in Addis Ababa, Ethiopia.</p>
+                <a href="https://www.upwork.com/freelancers/~0191af9b1cee504214">Hire Me on Upwork</a>
+                <a href="/contact">Get In Touch</a>
+            </section>
+
+            <section id="about">
+                <h2>About Hiruy Legesse</h2>
+                <p>Hiruy Legesse is a software developer specializing in full-stack web and mobile applications, backend development, REST APIs, and AI-powered systems. He builds production-grade platforms using React, Next.js, Python, Django, Node.js, and React Native.</p>
+            </section>
+
+            <section id="projects">
+                <h2>Projects by Hiruy Legesse</h2>
+                <article>
+                    <h3>Chronize – Event Management Platform</h3>
+                    <p>Full-stack event management platform built with Next.js, React, Node.js, and TypeScript. Features event creation, discovery, reservations, and user management.</p>
+                    <a href="https://www.chronize.de/">View Chronize</a>
+                </article>
+                <article>
+                    <h3>BunaProof – Agricultural Platform</h3>
+                    <p>Coffee farm management platform built with React and Django REST APIs. Features role-based workflows and field-agent interfaces.</p>
+                    <a href="https://bunaproof.com/">View BunaProof</a>
+                </article>
+                <article>
+                    <h3>Jegnit – Pregnancy Tracker</h3>
+                    <p>Comprehensive pregnancy tracking web and mobile application. Built with React and React Native, published on the Google Play Store with a 5-star rating.</p>
+                    <a href="https://jegnit.com/">View Jegnit</a>
+                </article>
+                <article>
+                    <h3>Betterphone – Parental Control App</h3>
+                    <p>Child device management and parental control mobile application with a Python backend. Enables parents to manage device usage and monitor activity.</p>
+                </article>
+                <article>
+                    <h3>AI Mock Interview Platform</h3>
+                    <p>AI-powered interview preparation platform using Voice AI and Gemini. Built with Next.js, TypeScript, Vapi.ai, and Firebase.</p>
+                    <a href="https://mock-interview-ai-bxxm.vercel.app/">View AI Mock Interview</a>
+                </article>
+            </section>
+
+            <section id="tech-stack">
+                <h2>Tech Stack</h2>
+                <p>Hiruy Legesse works with: React, Next.js, Node.js, Python, Django, React Native, TypeScript, JavaScript, REST APIs, PostgreSQL, MongoDB, Firebase, Tailwind CSS, Framer Motion, Vite, Git.</p>
+            </section>
+
+            <section id="experience">
+                <h2>Experience</h2>
+                <p>Software developer with experience building production-ready full-stack web and mobile applications for clients worldwide. Available for freelance work on Upwork.</p>
+                <a href="https://www.upwork.com/freelancers/~0191af9b1cee504214">Hire Hiruy Legesse on Upwork</a>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Hiruy Legesse</h2>
+                <p>Available for freelance software development projects. Reach out via Upwork or LinkedIn.</p>
+                <a href="https://www.linkedin.com/in/hiruy-legesse/">LinkedIn</a>
+                <a href="https://github.com/hiruy72">GitHub</a>
+            </section>
+        </main>
     </div>
     <script type="module" src="/src/main.jsx"></script>
 </body>
