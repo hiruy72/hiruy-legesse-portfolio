@@ -36,6 +36,18 @@ export const projects = [
         features: ['Personalized Pregnancy Tracking', 'Baby Development Milestones', 'Doctor Connectivity', 'React Native Google Play App']
     },
     {
+        id: 'betterphone-parental-control',
+        title: 'Betterphone – Mobile Application',
+        desc: 'Developed a child device management and parental control application with a Python backend, enabling parents to manage device usage, apply controls, and monitor activity.',
+        longDesc: 'Betterphone is a specialized child device management and parental control mobile application engineered with a robust Python backend. It empowers parents to manage and oversee device usage, configure application restrictions and screen time limits, apply remote parental controls, and monitor real-time activity metrics to ensure a secure digital environment.',
+        tags: ['Python', 'Mobile App', 'Android', 'Parental Control', 'Backend'],
+        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://drive.google.com/file/d/1oyZ_gCSWmnXVxS8yxlGRjhtWpVjnQCn5/view',
+        codeLink: '#',
+        status: 'APK Available',
+        features: ['Child Device Management', 'Parental Controls & Restrictions', 'App Usage & Activity Monitoring', 'Python Backend Architecture']
+    },
+    {
         id: 'hospital-management',
         title: 'Hospital Management System',
         desc: 'A full-stack hospital management web application designed to streamline patient registration, doctor management, and appointment scheduling.',

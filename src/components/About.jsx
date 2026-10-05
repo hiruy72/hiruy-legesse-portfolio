@@ -9,7 +9,7 @@ const About = () => {
             <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/[0.03] blur-[120px] pointer-events-none"></div>
 
             <div className="max-w-6xl mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-16 items-center">
                     {/* Left content */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
@@ -69,15 +69,15 @@ const About = () => {
                         </div>
                     </motion.div>
 
-                    {/* Right - Portrait */}
+                    {/* Right - Portrait (compact & balanced) */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1 }}
                         viewport={{ once: true }}
-                        className="relative"
+                        className="relative max-w-[320px] md:max-w-[340px] mx-auto w-full"
                     >
-                        <div className="relative z-10 aspect-[4/5] rounded-3xl overflow-hidden border border-white/[0.06] group">
+                        <div className="relative z-10 aspect-[4/5] rounded-3xl overflow-hidden border border-white/[0.08] group shadow-2xl bg-[#0d0e12]">
                             <img
                                 src="/Hiruy Legesse.png"
                                 alt="Hiruy Legesse"
@@ -87,14 +87,14 @@ const About = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-transparent opacity-60"></div>
                             
                             {/* Bottom label */}
-                            <div className="absolute bottom-6 left-6 right-6 glass rounded-2xl p-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                            <div className="absolute bottom-5 left-5 right-5 glass rounded-2xl p-3 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
                                 <p className="text-xs font-medium text-white/70 text-center">Software Engineer • UI/UX Designer</p>
                             </div>
                         </div>
 
-                        {/* Decorative */}
-                        <div className="absolute -top-6 -right-6 w-32 h-32 border border-indigo-500/10 rounded-full -z-10"></div>
-                        <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-indigo-500/[0.03] rounded-full blur-3xl -z-10"></div>
+                        {/* Decorative background glow */}
+                        <div className="absolute -top-5 -right-5 w-28 h-28 border border-indigo-500/15 rounded-full -z-10"></div>
+                        <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-indigo-500/[0.05] rounded-full blur-2xl -z-10"></div>
                     </motion.div>
                 </div>
             </div>
