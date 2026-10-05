@@ -29,7 +29,7 @@ export const projects = [
         desc: 'Developed the Jegnit pregnancy tracker website with responsive interfaces for pregnancy tracking, personalized pregnancy information, baby development, doctor connectivity, and built the accompanying React Native app (5-star rating on Google Play Store).',
         longDesc: 'Jegnit is a comprehensive pregnancy tracking platform comprising a responsive web application and an accompanying React Native mobile application published on the Google Play Store with a 5-star rating. It provides expectant mothers with personalized pregnancy tracking, week-by-week baby development updates, curated pregnancy insights, and seamless connectivity with healthcare professionals.',
         tags: ['React', 'React Native', 'Mobile App', 'Node.js', 'HealthTech'],
-        image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=1600',
+        image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=1600',
         liveLink: 'https://jegnit.com/',
         codeLink: '#',
         status: 'Live Platform',
