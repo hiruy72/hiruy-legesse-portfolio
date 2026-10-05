@@ -33,11 +33,11 @@ const Footer = () => {
                             Navigation
                         </span>
                         <div className="flex flex-col space-y-2 text-sm text-muted-foreground">
-                            <a href="#about" className="hover:text-white transition-colors">About</a>
-                            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-                            <a href="#tech-stack" className="hover:text-white transition-colors">Tech Stack</a>
-                            <a href="#experience" className="hover:text-white transition-colors">Experience</a>
-                            <a href="#certificates" className="hover:text-white transition-colors">Credentials</a>
+                            <Link to="/about" className="hover:text-white transition-colors">About</Link>
+                            <Link to="/projects" className="hover:text-white transition-colors">Projects</Link>
+                            <Link to="/tech-stack" className="hover:text-white transition-colors">Tech Stack</Link>
+                            <Link to="/experience" className="hover:text-white transition-colors">Experience</Link>
+                            <Link to="/credentials" className="hover:text-white transition-colors">Credentials</Link>
                         </div>
                     </div>
 

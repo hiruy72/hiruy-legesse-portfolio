@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -15,6 +15,23 @@ import AllProjects from './components/AllProjects';
 import ExperiencePage from './components/ExperiencePage';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+function ScrollToTop() {
+    const { pathname, hash } = useLocation();
+
+    useEffect(() => {
+        if (!hash) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            const element = document.getElementById(hash.replace('#', ''));
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [pathname, hash]);
+
+    return null;
+}
 
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -64,6 +81,7 @@ function App() {
 
     return (
         <Router>
+            <ScrollToTop />
             <div className="min-h-screen bg-background text-foreground transition-colors duration-300 relative">
                 {/* Micro1-style ambient viewport glow */}
                 <div className="viewport-glow"></div>
