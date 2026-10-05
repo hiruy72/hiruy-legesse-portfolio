@@ -1,126 +1,155 @@
-import { ArrowRight, ExternalLink, Award } from 'lucide-react';
+import { ArrowRight, ExternalLink, Award, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const topCertificates = [
     {
         title: 'Next.js Proficiency',
-        tags: ['Next.js'],
+        tags: ['Next.js', 'React', 'SSR'],
         image: '/next screen-shot.png',
         link: '/Nextjs.pdf',
-        issuer: 'Professional Training'
+        issuer: 'Professional Training',
+        date: '2025'
     },
     {
         title: 'Node.js with MongoDB',
-        tags: ['Node.js', 'MongoDB'],
+        tags: ['Node.js', 'MongoDB', 'NoSQL'],
         image: '/Screenshot 2025-11-04 142403.png',
         link: '/node js and mongog db (1).pdf',
-        issuer: 'Backend Certification'
+        issuer: 'Backend Certification',
+        date: '2025'
     },
     {
         title: 'Node.js with Express',
-        tags: ['Node.js', 'Express'],
+        tags: ['Node.js', 'Express', 'APIs'],
         image: '/Screenshot 2025-11-04 142318.png',
         link: '/node and expresse certificate.pdf',
-        issuer: 'Full Stack Training'
+        issuer: 'Full Stack Training',
+        date: '2024'
     },
     {
-        title: 'Cloud Computing',
-        tags: ['Cloud', 'AWS'],
+        title: 'Cloud Computing Architecture',
+        tags: ['Cloud', 'AWS', 'DevOps'],
         image: '/Screenshot 2025-11-04 142118.png',
         link: '/Coursera cloud competing.pdf',
-        issuer: 'AWS Academy'
+        issuer: 'AWS Academy',
+        date: '2024'
     }
 ];
 
 const Certificates = () => {
     return (
-        <section id="certificates" className="py-32 md:py-48 bg-background relative overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-                <div className="flex flex-col md:flex-row justify-between items-start mb-24 md:mb-40 gap-12">
+        <section id="certificates" className="py-28 md:py-36 relative overflow-hidden">
+            {/* Ambient background glow */}
+            <div className="absolute top-1/3 right-0 w-96 h-96 bg-violet-600/10 rounded-full blur-[130px] pointer-events-none -z-10" />
+
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                {/* Section Header */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20 gap-8">
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
+                        transition={{ duration: 0.7 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-6">Recognitions</h2>
-                        <h3 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] uppercase text-foreground">
-                            CERTI <br /> <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">FICATES.</span>
-                        </h3>
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-medium text-indigo-400 mb-4">
+                            <Award size={13} className="text-indigo-400" />
+                            <span>VERIFIED CREDENTIALS</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gradient-micro1">
+                            Certifications & Awards
+                        </h2>
+                        <p className="mt-4 text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">
+                            Continuous learning and proven expertise verified through industry-standard credentials and specialized courses.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                        viewport={{ once: true }}
+                    >
+                        <Link
+                            to="/credentials"
+                            className="btn-pill-outline text-xs uppercase tracking-wider font-semibold"
+                        >
+                            All Certifications
+                            <ArrowRight size={14} />
+                        </Link>
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border mt-12 overflow-hidden shadow-2xl">
+                {/* Certificates Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {topCertificates.map((cert, index) => (
                         <motion.a
                             key={index}
                             href={cert.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ duration: 1, delay: index * 0.1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-background group relative p-12 md:p-20 overflow-hidden transition-colors duration-700"
+                            className="glass-card rounded-2xl p-7 md:p-8 flex flex-col justify-between group relative overflow-hidden hover:border-white/20 transition-all duration-500"
                         >
-                            <div className="relative z-10 flex flex-col h-full">
-                                <div className="flex justify-between items-start mb-12">
-                                    <div className="w-16 h-16 border border-border rounded-full flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-700 transform group-hover:rotate-12">
-                                        <Award size={32} />
+                            {/* Subtle hover gradient background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.04] to-violet-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                            <div className="relative z-10 space-y-6">
+                                <div className="flex items-start justify-between">
+                                    <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-indigo-400 group-hover:border-indigo-500/40 group-hover:bg-indigo-500/10 group-hover:scale-105 transition-all">
+                                        <Award size={22} />
                                     </div>
-                                    <div className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/60 group-hover:text-foreground transition-colors duration-500">
-                                        Verified Credential
+                                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-semibold text-emerald-400">
+                                        <CheckCircle2 size={12} /> Verified
                                     </div>
                                 </div>
 
-                                <div className="space-y-6">
-                                    <h4 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[0.85] group-hover:translate-x-6 transition-transform duration-700 ease-out text-foreground">
+                                <div className="space-y-3">
+                                    <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
                                         {cert.title}
-                                    </h4>
-                                    <div className="flex flex-wrap gap-4">
+                                    </h3>
+                                    <div className="flex flex-wrap gap-2">
                                         {cert.tags.map(tag => (
-                                            <span key={tag} className="text-[10px] font-black uppercase tracking-widest border border-border px-6 py-2 rounded-full bg-muted/30 group-hover:bg-foreground group-hover:text-background transition-all duration-500">
+                                            <span
+                                                key={tag}
+                                                className="text-xs font-medium px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-muted-foreground group-hover:text-white group-hover:border-white/10 transition-colors"
+                                            >
                                                 {tag}
                                             </span>
                                         ))}
                                     </div>
                                 </div>
+                            </div>
 
-                                <div className="mt-auto pt-24 flex items-center justify-between">
-                                    <div className="flex flex-col gap-2">
-                                        <span className="text-[9px] font-black uppercase tracking-[0.5em] text-muted-foreground opacity-50">Issued By</span>
-                                        <span className="text-xs font-black uppercase tracking-[0.2em] text-foreground">{cert.issuer}</span>
-                                    </div>
-                                    <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-foreground">
-                                        <ExternalLink size={20} />
+                            <div className="relative z-10 mt-8 pt-6 border-t border-white/[0.06] flex items-center justify-between">
+                                <div>
+                                    <span className="text-[11px] text-muted-foreground uppercase tracking-wider block font-medium">Issuer</span>
+                                    <span className="text-sm font-semibold text-white/90">{cert.issuer}</span>
+                                </div>
+
+                                <div className="inline-flex items-center gap-2 text-xs font-semibold text-indigo-400 group-hover:text-white transition-colors">
+                                    <span>View PDF</span>
+                                    <div className="w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                                        <ExternalLink size={13} />
                                     </div>
                                 </div>
                             </div>
-
-                            {/* Masterpiece Background Reveal */}
-                            <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-10 transition-opacity duration-1000 grayscale pointer-events-none">
-                                <img
-                                    src={cert.image}
-                                    alt=""
-                                    className="w-full h-full object-cover scale-150 group-hover:scale-110 transition-transform duration-[2s] ease-out"
-                                />
-                            </div>
-
-                            {/* Kinetic Border */}
-                            <div className="absolute inset-x-0 bottom-0 h-1 bg-foreground transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
                         </motion.a>
                     ))}
                 </div>
 
-                <div className="mt-32 flex justify-center">
+                {/* Bottom CTA */}
+                <div className="mt-14 flex justify-center">
                     <Link
                         to="/credentials"
-                        className="group flex items-center gap-10 text-xl md:text-2xl font-black uppercase tracking-[0.2em] text-foreground"
+                        className="btn-pill"
                     >
-                        Explore Full Archive
-                        <div className="w-16 h-16 border border-foreground rounded-full flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-500 shadow-2xl">
-                            <ArrowRight size={28} className="group-hover:translate-x-2 transition-transform" />
+                        <span>Explore All Credentials</span>
+                        <div className="arrow-badge">
+                            <ArrowRight size={14} />
                         </div>
                     </Link>
                 </div>
@@ -130,3 +159,4 @@ const Certificates = () => {
 };
 
 export default Certificates;
+

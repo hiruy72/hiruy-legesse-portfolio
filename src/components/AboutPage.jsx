@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, Download, Terminal, Layers, Cpu, Globe, Rocket, Shield, Zap, Sparkles, Award } from 'lucide-react';
+import { ArrowLeft, Download, Terminal, Layers, Cpu, Globe, Rocket, Shield, Zap, Sparkles, Award, CheckCircle2, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -13,138 +13,163 @@ const AboutPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="min-h-screen bg-background pb-32 pt-40"
+            className="min-h-screen bg-[#050507] text-white pb-32 pt-32 relative overflow-hidden"
         >
-            <div className="max-w-[1440px] mx-auto px-6 md:px-20">
-                {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-32">
-                    <div className="space-y-6">
-                        <Link to="/" className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group mb-8">
-                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return Home
-                        </Link>
-                        <h1 className="text-6xl md:text-[8rem] font-black uppercase tracking-tighter leading-[0.7]">
-                            Personal <br />
-                            <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">Genesis.</span>
-                        </h1>
-                    </div>
-                    <div className="flex flex-col items-end gap-6 w-full md:w-auto">
-                        <p className="text-right text-[10px] font-black uppercase tracking-[0.4em] opacity-40 max-w-sm leading-relaxed">
-                            Hiruy Legesse — Software Engineer & AI Researcher. Exploring the intersection of digital logic and human experience.
-                        </p>
-                    </div>
+            {/* Ambient Background Glows */}
+            <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-indigo-600/[0.08] rounded-full blur-[140px] pointer-events-none -z-10" />
+            <div className="absolute top-1/2 right-10 w-96 h-96 bg-violet-600/[0.08] rounded-full blur-[120px] pointer-events-none -z-10" />
+
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                {/* Back Navigation */}
+                <div className="mb-10">
+                    <Link
+                        to="/"
+                        className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-white transition-colors"
+                    >
+                        <ArrowLeft size={14} /> Back to Overview
+                    </Link>
                 </div>
 
-                {/* Hero Content */}
-                <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-32 items-start mb-48">
-                    <div className="space-y-16">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-12"
-                        >
-                            <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-muted-foreground/60 flex items-center gap-4">
-                                <div className="w-12 h-[1px] bg-muted-foreground/40"></div> The Narrative
-                            </h2>
-                            <p className="text-3xl md:text-5xl font-black leading-[1.1] tracking-tighter text-foreground">
-                                I am Hiruy Legesse Adane, a Software Engineering student architecture-focused on <span className="text-muted-foreground italic">UI/UX, Full Stack development, and scalable back-end systems</span>.
-                            </p>
-                            <div className="space-y-8 text-lg text-muted-foreground font-medium leading-relaxed max-w-3xl">
-                                <p>
-                                    Based in Addis Ababa, I specialize in building robust digital infrastructures. My foundation is built on a rock-solid understanding of <b>Data Structures, Algorithms, and Object-Oriented Programming</b>, which I apply to solve complex server-side challenges.
-                                </p>
-                                <p>
-                                    Whether it's architecting a high-performance Restaurant Management System or training intelligent models for financial market analysis, my goal remains constant: to bridge the gap between industrial efficiency and human-centric design through clean, scalable code.
-                                </p>
-                            </div>
-                        </motion.div>
+                {/* Page Header */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20">
+                    <div className="max-w-3xl">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-medium text-indigo-400 mb-4">
+                            <User size={13} className="text-indigo-400" />
+                            <span>ENGINEERING DNA & GENESIS</span>
+                        </div>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gradient-micro1">
+                            Building at the intersection of AI, Systems & Design
+                        </h1>
+                    </div>
+                    <p className="text-sm md:text-base text-muted-foreground max-w-sm leading-relaxed">
+                        Hiruy Legesse — Software Engineer & AI Developer. Driven by clean architecture, algorithmic precision, and intuitive user experiences.
+                    </p>
+                </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-1px bg-border border border-border rounded-[2rem] overflow-hidden">
+                {/* Main Content Grid */}
+                <div className="grid lg:grid-cols-12 gap-12 items-start mb-24">
+                    {/* Left Column: Story & Philosophy */}
+                    <div className="lg:col-span-7 space-y-12">
+                        <div className="glass-card rounded-3xl p-8 md:p-10 border border-white/[0.08] space-y-6">
+                            <h2 className="text-2xl font-bold text-white tracking-tight">
+                                The Engineering Narrative
+                            </h2>
+                            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                                I am Hiruy Legesse Adane, a Software Engineering professional focused on <span className="text-white font-semibold">AI systems, modern full-stack architectures, and high-performance backends</span>.
+                            </p>
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                Based in Addis Ababa, I combine deep theoretical foundations in Data Structures, Algorithms, and Distributed Systems with hands-on development in React, Next.js, Node.js, Python, and cloud services.
+                            </p>
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                From training intelligent predictive models to deploying production-grade enterprise platforms, I engineer solutions that balance ultra-fast responsiveness with maintainable, robust codebases.
+                            </p>
+                        </div>
+
+                        {/* 4 Pillars Grid */}
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                             {[
-                                { label: 'Top Tier', icon: <Award /> },
-                                { label: 'UI/UX & Full Stack', icon: <Terminal /> },
-                                { label: 'Scalability', icon: <Zap /> },
-                                { label: 'CS Foundations', icon: <Layers /> }
-                            ].map((value, i) => (
-                                <div key={i} className="bg-background p-10 flex flex-col items-center gap-6 group hover:bg-muted/30 transition-all duration-700">
-                                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-muted-foreground group-hover:bg-foreground group-hover:text-background transition-all">
-                                        {value.icon}
+                                { label: 'Top Academic Rank', sub: 'High Honors', icon: <Award size={20} className="text-indigo-400" /> },
+                                { label: 'Full-Stack & UI/UX', sub: 'Modern Web Apps', icon: <Terminal size={20} className="text-violet-400" /> },
+                                { label: 'AI & Data Models', sub: 'Python & ML', icon: <Zap size={20} className="text-indigo-400" /> },
+                                { label: 'Scalable Systems', sub: 'Node & Cloud', icon: <Layers size={20} className="text-violet-400" /> }
+                            ].map((pillar, idx) => (
+                                <div
+                                    key={idx}
+                                    className="glass-card rounded-2xl p-5 border border-white/[0.06] text-center space-y-2 hover:border-white/20 transition-colors"
+                                >
+                                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center mx-auto mb-2">
+                                        {pillar.icon}
                                     </div>
-                                    <span className="text-[8px] font-black uppercase tracking-[0.4em]">{value.label}</span>
+                                    <h4 className="text-xs font-bold text-white">{pillar.label}</h4>
+                                    <p className="text-[11px] text-muted-foreground">{pillar.sub}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <div className="space-y-16 sticky top-40">
-                        <div className="aspect-[4/5] rounded-[3rem] overflow-hidden border border-border bg-muted shadow-2xl relative group">
-                            <img
-                                src="/Hiruy Legesse.png"
-                                alt="Hiruy Legesse Portrait"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60"></div>
-                        </div>
+                    {/* Right Column: Profile & Quick Info */}
+                    <div className="lg:col-span-5 space-y-6">
+                        <div className="glass-card rounded-3xl p-6 border border-white/[0.08] overflow-hidden group">
+                            <div className="aspect-[4/4.5] rounded-2xl overflow-hidden relative mb-6">
+                                <img
+                                    src="/Hiruy Legesse.png"
+                                    alt="Hiruy Legesse"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#050507]/80 via-transparent to-transparent" />
+                                <div className="absolute bottom-4 left-4 right-4">
+                                    <span className="text-lg font-bold text-white block">Hiruy Legesse Adane</span>
+                                    <span className="text-xs text-indigo-300 font-medium">Full-Stack & AI Developer</span>
+                                </div>
+                            </div>
 
-                        <div className="space-y-10 p-12 bg-muted/20 backdrop-blur-3xl border border-border rounded-[3rem]">
-                            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground pb-6 border-b border-white/5">Quick Intel</h4>
-                            <div className="space-y-6">
+                            <div className="space-y-3.5 px-2">
                                 {[
-                                    { label: 'Base of Op', value: 'Addis Ababa, ETH' },
-                                    { label: 'Academic Rank', value: 'Top Percentile' },
-                                    { label: 'Education', value: 'AAU SE Dept' },
-                                    { label: 'Specialty', value: 'UI/UX / Full Stack / Back-end' }
-                                ].map((intel, i) => (
-                                    <div key={i} className="flex justify-between items-center">
-                                        <span className="text-[8px] font-black uppercase tracking-widest text-muted-foreground/60">{intel.label}</span>
-                                        <span className="text-[10px] font-black uppercase tracking-widest">{intel.value}</span>
+                                    { label: 'Location', value: 'Addis Ababa, Ethiopia' },
+                                    { label: 'Education', value: 'Addis Ababa University' },
+                                    { label: 'Focus Areas', value: 'Full-Stack & AI Systems' },
+                                    { label: 'Status', value: 'Available for Hire' }
+                                ].map((row, idx) => (
+                                    <div key={idx} className="flex justify-between items-center text-xs py-2 border-b border-white/[0.04] last:border-0">
+                                        <span className="text-muted-foreground">{row.label}</span>
+                                        <span className="font-semibold text-white/90">{row.value}</span>
                                     </div>
                                 ))}
                             </div>
-                            <div className="pt-8 flex flex-col gap-4">
-                                <p className="text-[8px] font-black uppercase tracking-widest text-muted-foreground/40 leading-relaxed text-center">
-                                    High academic performance at Addis Ababa University.
-                                </p>
+
+                            <div className="mt-6 pt-4 space-y-3">
+                                <a
+                                    href="https://www.upwork.com/freelancers/~0191af9b1cee504214?mp_source=share"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-pill w-full justify-between"
+                                >
+                                    <span>Hire Me on Upwork</span>
+                                    <div className="arrow-badge">
+                                        <Globe size={14} />
+                                    </div>
+                                </a>
                                 <a
                                     href="/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf"
                                     download="Hiruy-Legesse-Resume.pdf"
-                                    className="h-16 bg-foreground text-background flex items-center justify-center rounded-2xl font-black uppercase tracking-widest text-[10px] gap-4 hover:scale-105 active:scale-95 transition-all"
+                                    className="btn-pill-outline w-full justify-between"
                                 >
-                                    Download Secure CV <Download size={14} />
+                                    <span>Download Resume</span>
+                                    <Download size={14} />
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Extra Section: Core Principles */}
-                <div className="space-y-32">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="space-y-16"
-                    >
-                        <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-muted-foreground/60 flex items-center gap-4">
-                            <div className="w-12 h-[1px] bg-muted-foreground/40"></div> Engineering Philosophy
-                        </h2>
-                        <div className="grid md:grid-cols-2 gap-12">
-                            <div className="p-16 border border-border rounded-[3rem] space-y-8 hover:bg-muted/20 transition-all duration-700">
-                                <Terminal className="text-muted-foreground" size={32} />
-                                <h3 className="text-3xl font-black uppercase tracking-tighter">Code as Architecture</h3>
-                                <p className="text-muted-foreground font-medium leading-relaxed">
-                                    I treat code not just as instructions for a machine, but as a living structure that must be resilient, readable, and elegant. Scalability is planned from the first line of code.
-                                </p>
+                {/* Engineering Philosophy Cards */}
+                <div className="space-y-8">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-medium text-indigo-400">
+                        <Sparkles size={13} className="text-indigo-400" />
+                        <span>CORE PRINCIPLES</span>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div className="glass-card rounded-3xl p-8 md:p-10 border border-white/[0.08] space-y-4 hover:border-white/20 transition-all">
+                            <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-indigo-400">
+                                <Terminal size={24} />
                             </div>
-                            <div className="p-16 border border-border rounded-[3rem] space-y-8 hover:bg-muted/20 transition-all duration-700">
-                                <Globe className="text-muted-foreground" size={32} />
-                                <h3 className="text-3xl font-black uppercase tracking-tighter">Global Accessibility</h3>
-                                <p className="text-muted-foreground font-medium leading-relaxed">
-                                    Technology should empower everyone. My designs prioritize high-contrast accessibility and mobile-first logic to ensure that digital bridges reach every corner of the globe.
-                                </p>
-                            </div>
+                            <h3 className="text-2xl font-bold text-white">Code as Architecture</h3>
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                I treat code not merely as instructions for a processor, but as structured architecture that must be modular, self-documenting, and designed for horizontal scale from day one.
+                            </p>
                         </div>
-                    </motion.div>
+
+                        <div className="glass-card rounded-3xl p-8 md:p-10 border border-white/[0.08] space-y-4 hover:border-white/20 transition-all">
+                            <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-violet-400">
+                                <Globe size={24} />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white">High Performance & Accessibility</h3>
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                User interfaces must feel instantaneous and frictionless across any device. By combining minimal bundle footprints with polished micro-interactions, technology reaches its full potential.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </motion.div>
@@ -152,3 +177,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+

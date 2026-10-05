@@ -29,7 +29,17 @@ module.exports = {
         border: 'hsl(var(--border))',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+      },
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '2.5rem',
+      },
+      animation: {
+        'float': 'float 4s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+        'spin-slow': 'spin-slow 8s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
       },
     },
   },

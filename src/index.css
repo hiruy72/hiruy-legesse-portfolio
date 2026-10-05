@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,35 +10,37 @@
     }
 
     :root {
-        --background: 0 0% 100%;
-        --foreground: 240 10% 3.9%;
-        --primary: 240 5.9% 10%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 240 4.8% 95.9%;
-        --secondary-foreground: 240 5.9% 10%;
-        --muted: 240 4.8% 95.9%;
-        --muted-foreground: 240 3.8% 46.1%;
-        --accent: 240 4.8% 95.9%;
-        --accent-foreground: 240 5.9% 10%;
-        --border: 240 5.9% 90%;
-        --input: 240 5.9% 90%;
-        --ring: 240 5.9% 10%;
+        --background: 228 10% 3%;
+        --foreground: 0 0% 100%;
+        --primary: 0 0% 100%;
+        --primary-foreground: 228 10% 3%;
+        --secondary: 228 8% 8%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 228 8% 10%;
+        --muted-foreground: 220 10% 60%;
+        --accent: 235 80% 60%;
+        --accent-foreground: 0 0% 100%;
+        --border: 220 10% 12%;
+        --input: 220 10% 12%;
+        --ring: 235 80% 60%;
+        --glow-blue: 235 80% 55%;
+        --glow-indigo: 260 70% 50%;
     }
 
     .dark {
-        --background: 240 10% 3.9%;
-        --foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 240 5.9% 10%;
-        --secondary: 240 3.7% 15.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 240 3.7% 15.9%;
-        --muted-foreground: 240 5% 64.9%;
-        --accent: 240 3.7% 15.9%;
-        --accent-foreground: 0 0% 98%;
-        --border: 240 3.7% 15.9%;
-        --input: 240 3.7% 15.9%;
-        --ring: 240 4.9% 83.9%;
+        --background: 228 10% 3%;
+        --foreground: 0 0% 100%;
+        --primary: 0 0% 100%;
+        --primary-foreground: 228 10% 3%;
+        --secondary: 228 8% 8%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 228 8% 10%;
+        --muted-foreground: 220 10% 60%;
+        --accent: 235 80% 60%;
+        --accent-foreground: 0 0% 100%;
+        --border: 220 10% 12%;
+        --input: 220 10% 12%;
+        --ring: 235 80% 60%;
     }
 }
 
@@ -46,76 +50,299 @@
     }
 
     body {
-        @apply bg-background text-foreground font-sans antialiased;
+        @apply bg-background text-foreground antialiased;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 }
 
-.dotted-bg {
-    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
-    background-size: 32px 32px;
-    @apply text-foreground/5;
+/* ============================================
+   MICRO1-STYLE AMBIENT GLOW / VIGNETTE FRAME
+   ============================================ */
+.viewport-glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.08), transparent 70%),
+        radial-gradient(ellipse 50% 80% at -10% 50%, rgba(99, 102, 241, 0.04), transparent 60%),
+        radial-gradient(ellipse 50% 80% at 110% 50%, rgba(99, 102, 241, 0.04), transparent 60%),
+        radial-gradient(ellipse 80% 50% at 50% 120%, rgba(139, 92, 246, 0.06), transparent 70%);
 }
 
-.text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/80 to-foreground/50;
+/* Top edge glow line */
+.viewport-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.2), transparent);
 }
 
-.italic-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-muted-foreground/40 to-muted-foreground/10 dark:from-muted-foreground/30 dark:to-muted-foreground/5;
+/* ============================================
+   GLASSMORPHIC ELEMENTS
+   ============================================ */
+.glass {
+    background: rgba(13, 14, 18, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.card-shine {
-    @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent;
+.glass-card {
+    background: rgba(13, 14, 18, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(13, 14, 18, 0.7);
+}
+
+/* ============================================
+   GRADIENT TEXT EFFECTS
+   ============================================ */
+.text-gradient-micro1 {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-accent {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-muted {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   PILL BUTTON WITH ARROW BADGE (MICRO1 STYLE)
+   ============================================ */
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 0.75rem 0.625rem 1.5rem;
+    background: #ffffff;
+    color: #0a0a0f;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.btn-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
+}
+
+.btn-pill .arrow-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: #18181b;
+    border-radius: 9999px;
+    color: #ffffff;
+    transition: all 0.3s;
+}
+
+.btn-pill:hover .arrow-badge {
+    transform: translateX(2px);
+}
+
+/* Secondary / outline pill */
+.btn-pill-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+}
+
+.btn-pill-outline:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   CARD STYLES (MICRO1 DARK CARDS)
+   ============================================ */
+.micro1-card {
+    background: #0d0e12;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.micro1-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   SECTION DIVIDERS & DECORATIVE ELEMENTS
+   ============================================ */
+.section-glow-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.2), transparent);
+}
+
+.watermark-text {
+    position: absolute;
+    font-size: clamp(6rem, 15vw, 18rem);
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.02);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+}
+
+/* ============================================
+   FLOATING PILL NAV (MICRO1 SCROLL EFFECT)
+   ============================================ */
+.nav-floating {
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
 }
 
 @keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
     100% {
         transform: translateX(100%);
     }
 }
 
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
+@keyframes glow-pulse {
+    0%, 100% {
+        opacity: 0.4;
     }
-
     50% {
-        transform: translateY(-10px);
+        opacity: 0.8;
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
 .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
 }
 
-@keyframes blob {
+.animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+/* Smooth appear on scroll */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Marquee animation for logo ticker */
+@keyframes marquee {
     0% {
-        transform: translate(0px, 0px) scale(1);
+        transform: translateX(0);
     }
-
-    33% {
-        transform: translate(30px, -50px) scale(1.1);
-    }
-
-    66% {
-        transform: translate(-20px, 20px) scale(0.9);
-    }
-
     100% {
-        transform: translate(0px, 0px) scale(1);
+        transform: translateX(-50%);
     }
 }
 
-.animate-blob {
-    animation: blob 7s infinite;
+.animate-marquee {
+    animation: marquee 30s linear infinite;
 }
 
-.animation-delay-2000 {
-    animation-delay: 2s;
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 6px;
 }
 
-.animation-delay-4000 {
-    animation-delay: 4s;
+::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
 }

@@ -51,60 +51,75 @@ const techStack = [
 ];
 
 const TechStack = () => {
-    const getIconUrl = (icon) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon.split('-')[0]}/${icon}.svg`;
+    const getIconUrl = (icon) => icon ? `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon.split('-')[0]}/${icon}.svg` : '';
 
     return (
-        <section id="tech-stack" className="py-24 md:py-32 bg-background relative overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <section id="tech-stack" className="py-28 md:py-40 relative overflow-hidden">
+            {/* Ambient glow */}
+            <div className="absolute top-[40%] left-[-5%] w-[400px] h-[400px] rounded-full bg-violet-500/[0.03] blur-[100px] pointer-events-none"></div>
+
+            <div className="max-w-6xl mx-auto px-6 relative z-10">
+                {/* Section header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
+                    transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="mb-24"
+                    className="text-center mb-20"
                 >
-                    <h2 className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-6">Technical Arsenal</h2>
-                    <h3 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase mb-12">
-                        TECH <br /> <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">STACK.</span>
-                    </h3>
-                    <Link
-                        to="/tech-stack"
-                        className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group"
-                    >
-                        Explore Arsenal <Zap size={14} className="group-hover:rotate-12 transition-transform" />
-                    </Link>
+                    <div className="flex items-center justify-center gap-3 mb-6">
+                        <div className="w-8 h-[1px] bg-indigo-500/50"></div>
+                        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-400/80">Technical Arsenal</span>
+                        <div className="w-8 h-[1px] bg-indigo-500/50"></div>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+                        <span className="text-gradient-micro1">Tech Stack</span>
+                    </h2>
+                    <p className="text-white/40 max-w-md mx-auto text-base">
+                        Technologies and tools I use to bring ideas to life.
+                    </p>
+                    <div className="mt-6">
+                        <Link
+                            to="/tech-stack"
+                            className="btn-pill-outline text-xs inline-flex"
+                        >
+                            <Zap size={14} />
+                            Explore Full Arsenal
+                        </Link>
+                    </div>
                 </motion.div>
 
-                <div className="grid gap-16 md:gap-24">
+                {/* Tech categories */}
+                <div className="grid gap-12">
                     {techStack.map((category, idx) => (
                         <motion.div
                             key={category.category}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: idx * 0.1 }}
+                            transition={{ duration: 0.6, delay: idx * 0.1 }}
                             viewport={{ once: true }}
                         >
-                            <h4 className="text-xs font-black uppercase tracking-[0.4em] text-muted-foreground mb-10 pb-4 border-b border-border inline-block">
+                            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/30 mb-8 pb-3 border-b border-white/[0.06] inline-block">
                                 {category.category}
-                            </h4>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12">
+                            </h3>
+                            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6">
                                 {category.items.map((item) => (
                                     <div
                                         key={item.name}
-                                        className="group flex flex-col items-center justify-center gap-4 transition-all duration-500"
+                                        className="glass-card rounded-xl p-4 flex flex-col items-center justify-center gap-3 group cursor-default"
                                     >
-                                        <div className="w-16 h-16 md:w-20 md:h-20 bg-muted/30 rounded-2xl flex items-center justify-center p-4 group-hover:bg-muted transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-2xl">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
                                             {item.custom ? (
-                                                <div className="text-2xl font-black opacity-20">{item.name[0]}</div>
+                                                <div className="text-xl font-bold text-white/20">{item.name[0]}</div>
                                             ) : (
                                                 <img
                                                     src={getIconUrl(item.icon)}
                                                     alt={item.name}
-                                                    className={`w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 ${item.invertDark ? 'dark:invert' : ''}`}
+                                                    className={`w-full h-full object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 ${item.invertDark ? 'invert' : ''}`}
                                                 />
                                             )}
                                         </div>
-                                        <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors duration-500">
+                                        <span className="text-[10px] font-medium text-white/30 group-hover:text-white/70 transition-colors text-center">
                                             {item.name}
                                         </span>
                                     </div>
@@ -114,6 +129,9 @@ const TechStack = () => {
                     ))}
                 </div>
             </div>
+
+            {/* Section divider */}
+            <div className="absolute bottom-0 w-full section-glow-line"></div>
         </section>
     );
 };

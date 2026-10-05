@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowUpRight, Github, Globe, Search, Filter } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Search, Sparkles, FolderGit2 } from 'lucide-react';
 import { projects } from '../data/projects';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -8,8 +8,6 @@ const AllProjects = () => {
     const [filter, setFilter] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredProjects, setFilteredProjects] = useState(projects);
-
-    const categories = ['All', ...new Set(projects.flatMap(p => p.tags))];
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -33,51 +31,71 @@ const AllProjects = () => {
         setFilteredProjects(filtered);
     }, [filter, searchQuery]);
 
+    const categories = ['All', 'Next.js', 'React', 'Node.js', 'Figma', 'AI/ML'];
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="min-h-screen bg-background pb-32 pt-40"
+            className="min-h-screen bg-[#050507] text-white pb-32 pt-32 relative overflow-hidden"
         >
-            <div className="max-w-[1440px] mx-auto px-6 md:px-20">
-                {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-32">
-                    <div className="space-y-6">
-                        <Link to="/" className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group mb-8">
-                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return Home
-                        </Link>
-                        <h1 className="text-6xl md:text-[8rem] font-black uppercase tracking-tighter leading-[0.7]">
-                            Project <br />
-                            <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">Archive.</span>
-                        </h1>
-                    </div>
-                    <div className="flex flex-col items-end gap-6 w-full md:w-auto">
-                        <p className="text-right text-[10px] font-black uppercase tracking-[0.4em] opacity-40 max-w-xs leading-relaxed">
-                            A comprehensive registry of technical deployments and design systems engineered between 2022 and 2025.
-                        </p>
-                    </div>
+            {/* Ambient Background Glows */}
+            <div className="absolute top-20 left-1/3 w-[600px] h-[600px] bg-indigo-600/[0.07] rounded-full blur-[160px] pointer-events-none -z-10" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-600/[0.07] rounded-full blur-[130px] pointer-events-none -z-10" />
+
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                {/* Back Navigation */}
+                <div className="mb-10">
+                    <Link
+                        to="/"
+                        className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-white transition-colors"
+                    >
+                        <ArrowLeft size={14} /> Back to Overview
+                    </Link>
                 </div>
 
-                {/* Search and Filters */}
-                <div className="flex flex-col lg:flex-row justify-between items-center gap-12 mb-20 pb-12 border-b border-border">
-                    <div className="relative w-full lg:max-w-md">
-                        <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                {/* Header */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
+                    <div className="max-w-2xl">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-medium text-indigo-400 mb-4">
+                            <FolderGit2 size={13} className="text-indigo-400" />
+                            <span>COMPREHENSIVE ARCHIVE</span>
+                        </div>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gradient-micro1">
+                            Engineered Projects & Systems
+                        </h1>
+                    </div>
+                    <p className="text-sm md:text-base text-muted-foreground max-w-sm leading-relaxed">
+                        A curated catalog of deployed applications, intelligent platforms, and interactive interfaces built between 2022 and 2026.
+                    </p>
+                </div>
+
+                {/* Search & Filter Bar */}
+                <div className="glass-card rounded-2xl p-4 md:p-5 border border-white/[0.08] mb-12 flex flex-col md:flex-row items-center justify-between gap-4">
+                    {/* Search Input */}
+                    <div className="relative w-full md:w-80">
+                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
                         <input
                             type="text"
-                            placeholder="SEARCH DEPLOYMENTS"
-                            className="w-full bg-muted/50 border border-border rounded-full py-6 pl-16 pr-8 font-black uppercase tracking-widest text-[10px] focus:bg-muted focus:border-foreground outline-none transition-all"
+                            placeholder="Search projects by keyword or tech..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl py-2.5 pl-10 pr-4 text-xs text-white placeholder:text-muted-foreground/50 focus:outline-none focus:border-indigo-500/60 focus:bg-white/[0.05] transition-all"
                         />
                     </div>
 
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {['All', 'Next.js', 'React', 'Figma', 'Node.js', 'AI/ML'].map((cat) => (
+                    {/* Filter Pills */}
+                    <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                        {categories.map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setFilter(cat)}
-                                className={`px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${filter === cat ? 'bg-foreground text-background border-foreground' : 'bg-transparent border-border text-muted-foreground hover:border-foreground'}`}
+                                className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                                    filter === cat
+                                        ? 'bg-white text-black shadow-md'
+                                        : 'bg-white/[0.03] text-muted-foreground border border-white/[0.06] hover:text-white hover:border-white/20'
+                                }`}
                             >
                                 {cat}
                             </button>
@@ -85,63 +103,85 @@ const AllProjects = () => {
                     </div>
                 </div>
 
-                {/* Results Count */}
-                <div className="mb-12 flex justify-between items-center">
-                    <span className="text-[10px] font-black uppercase tracking-[0.5em] text-muted-foreground/60">Registry Count: 0{filteredProjects.length}</span>
+                {/* Result Info */}
+                <div className="flex items-center justify-between mb-8 text-xs text-muted-foreground">
+                    <span>Showing <strong className="text-white">{filteredProjects.length}</strong> project{filteredProjects.length === 1 ? '' : 's'}</span>
                 </div>
 
                 {/* Projects Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-1px bg-border border border-border rounded-[3rem] overflow-hidden shadow-2xl transition-all duration-700">
-                    {filteredProjects.map((project) => (
-                        <div key={project.id} className="bg-background group relative aspect-square md:aspect-[4/5] overflow-hidden hover:bg-muted/30 transition-all duration-700">
-                            <Link to={`/project/${project.id}`} className="block h-full">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-90 group-hover:opacity-100"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredProjects.map((project, idx) => (
+                        <motion.div
+                            key={project.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: idx * 0.05 }}
+                            className="glass-card rounded-2xl border border-white/[0.08] overflow-hidden group hover:border-white/20 flex flex-col justify-between transition-all duration-500"
+                        >
+                            <Link to={`/project/${project.id}`} className="block">
+                                <div className="aspect-[16/10] overflow-hidden relative bg-black/40">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-transparent opacity-80" />
 
-                                <div className="absolute bottom-0 left-0 w-full p-10 space-y-6">
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.tags.slice(0, 2).map(tag => (
-                                            <span key={tag} className="text-[8px] font-black uppercase tracking-widest bg-background/50 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full">
+                                    {project.status && (
+                                        <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-[10px] font-semibold">
+                                            {project.status}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="p-6 space-y-4">
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {project.tags.slice(0, 3).map(tag => (
+                                            <span
+                                                key={tag}
+                                                className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-muted-foreground"
+                                            >
                                                 {tag}
                                             </span>
                                         ))}
                                     </div>
-                                    <h3 className="text-3xl font-black uppercase tracking-tighter leading-none group-hover:translate-x-2 transition-transform duration-500">
+
+                                    <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
                                         {project.title}
                                     </h3>
-                                    <div className="flex justify-between items-end pt-4 border-t border-white/5 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
-                                        <span className="text-[10px] font-black uppercase tracking-widest opacity-60">{project.year}</span>
-                                        <div className="w-10 h-10 bg-foreground text-background rounded-full flex items-center justify-center">
-                                            <ArrowUpRight size={20} />
-                                        </div>
-                                    </div>
+
+                                    <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                                        {project.desc}
+                                    </p>
                                 </div>
                             </Link>
 
-                            {project.status && (
-                                <div className="absolute top-8 right-8 bg-foreground text-background text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-2xl">
-                                    {project.status}
-                                </div>
-                            )}
-                        </div>
+                            <div className="px-6 pb-6 pt-2 border-t border-white/[0.04] flex items-center justify-between text-xs text-muted-foreground">
+                                <span>{project.year || '2025'}</span>
+                                <Link
+                                    to={`/project/${project.id}`}
+                                    className="inline-flex items-center gap-1.5 font-semibold text-indigo-400 hover:text-white transition-colors"
+                                >
+                                    <span>Case Study</span>
+                                    <ArrowUpRight size={14} />
+                                </Link>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
 
                 {filteredProjects.length === 0 && (
-                    <div className="py-40 text-center space-y-8 bg-muted/20 rounded-[3rem] border border-dashed border-border">
-                        <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mx-auto opacity-20">
-                            <Search size={32} />
+                    <div className="py-24 text-center glass-card rounded-2xl border border-white/[0.06] space-y-4">
+                        <div className="w-12 h-12 rounded-full bg-white/[0.04] flex items-center justify-center mx-auto text-muted-foreground">
+                            <Search size={20} />
                         </div>
-                        <h3 className="text-2xl font-black uppercase tracking-widest opacity-40">No Deployments Found</h3>
+                        <h3 className="text-lg font-bold text-white">No projects found</h3>
+                        <p className="text-xs text-muted-foreground">Try adjusting your keyword search or selected tech filter.</p>
                         <button
                             onClick={() => { setFilter('All'); setSearchQuery(''); }}
-                            className="text-xs font-black uppercase tracking-widest border-b border-foreground pb-1"
+                            className="btn-pill-outline text-xs mt-2"
                         >
-                            Reset Registry
+                            Reset Filters
                         </button>
                     </div>
                 )}
@@ -151,3 +191,4 @@ const AllProjects = () => {
 };
 
 export default AllProjects;
+

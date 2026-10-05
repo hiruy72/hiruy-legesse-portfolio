@@ -1,5 +1,41 @@
 export const projects = [
     {
+        id: 'chronize-event-platform',
+        title: 'Chronize – Event Management Platform',
+        desc: 'Contributed to a full-stack event management platform using modern web technologies, implementing responsive interfaces for event creation, discovery, reservations, authentication, and user management.',
+        longDesc: 'Chronize is a full-stack event management and discovery platform engineered with modern web technologies. It provides end-to-end event infrastructure, featuring intuitive interfaces for creating and scheduling events, discovering local and global happenings, managing attendee reservations, secure user authentication, and granular administrative controls.',
+        tags: ['Next.js', 'React', 'Node.js', 'TypeScript', 'Tailwind CSS'],
+        image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://www.chronize.de/',
+        codeLink: '#',
+        status: 'Live Platform',
+        features: ['Event Creation & Scheduling', 'Dynamic Event Discovery', 'Reservation & Booking Workflows', 'Authentication & User Management']
+    },
+    {
+        id: 'bunaproof-agri-platform',
+        title: 'BunaProof – Agricultural Platform',
+        desc: 'Built frontend features using React for a coffee farm management platform, including role-based workflows, field-agent interfaces, and integration with Django REST APIs.',
+        longDesc: 'BunaProof is an agricultural operations and coffee farm management platform. Built with React and integrated with Django REST APIs, it provides field-agent operational interfaces, harvest tracking, and role-based workflows designed to streamline agricultural productivity and traceability.',
+        tags: ['React', 'Django REST', 'Python', 'Tailwind CSS', 'AgriTech'],
+        image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://bunaproof.com/',
+        codeLink: '#',
+        status: 'Live Platform',
+        features: ['Coffee Farm Management', 'Field-Agent Interfaces', 'Role-Based Workflows', 'Django REST API Integration']
+    },
+    {
+        id: 'jegnit-pregnancy-tracker',
+        title: 'Jegnit – Pregnancy Tracker',
+        desc: 'Developed the Jegnit pregnancy tracker website with responsive interfaces for pregnancy tracking, personalized pregnancy information, baby development, doctor connectivity, and built the accompanying React Native app (5-star rating on Google Play Store).',
+        longDesc: 'Jegnit is a comprehensive pregnancy tracking platform comprising a responsive web application and an accompanying React Native mobile application published on the Google Play Store with a 5-star rating. It provides expectant mothers with personalized pregnancy tracking, week-by-week baby development updates, curated pregnancy insights, and seamless connectivity with healthcare professionals.',
+        tags: ['React', 'React Native', 'Mobile App', 'Node.js', 'HealthTech'],
+        image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=1600',
+        liveLink: 'https://jegnit.com/',
+        codeLink: '#',
+        status: 'Live Platform',
+        features: ['Personalized Pregnancy Tracking', 'Baby Development Milestones', 'Doctor Connectivity', 'React Native Google Play App']
+    },
+    {
         id: 'hospital-management',
         title: 'Hospital Management System',
         desc: 'A full-stack hospital management web application designed to streamline patient registration, doctor management, and appointment scheduling.',

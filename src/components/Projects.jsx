@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Github, Globe, ChevronLeft, ChevronRight, Layers } from 'lucide-react';
+import { ArrowUpRight, Globe, ChevronLeft, ChevronRight, Layers } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
@@ -10,9 +10,9 @@ const Projects = () => {
 
     const slideVariants = {
         enter: (direction) => ({
-            y: direction > 0 ? 100 : -100,
+            y: direction > 0 ? 60 : -60,
             opacity: 0,
-            scale: 0.95
+            scale: 0.98
         }),
         center: {
             zIndex: 1,
@@ -22,9 +22,9 @@ const Projects = () => {
         },
         exit: (direction) => ({
             zIndex: 0,
-            y: direction < 0 ? 100 : -100,
+            y: direction < 0 ? 60 : -60,
             opacity: 0,
-            scale: 0.95
+            scale: 0.98
         })
     };
 
@@ -39,44 +39,54 @@ const Projects = () => {
     };
 
     return (
-        <section id="projects" className="py-24 md:py-48 bg-background relative overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-12">
+        <section id="projects" className="py-28 md:py-40 relative overflow-hidden">
+            {/* Ambient glow */}
+            <div className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/[0.03] blur-[120px] pointer-events-none"></div>
+
+            <div className="max-w-6xl mx-auto px-6 relative z-10">
+                {/* Header */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-sm font-black uppercase tracking-[0.3em] text-muted-foreground/60 mb-6">Masterpiece Gallery</h2>
-                        <h3 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8] uppercase mb-12">
-                            Selected <br /> <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">Works.</span>
-                        </h3>
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="w-8 h-[1px] bg-indigo-500/50"></div>
+                            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-400/80">Selected Works</span>
+                        </div>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+                            <span className="text-gradient-micro1">Projects</span>
+                        </h2>
                         <Link
                             to="/projects"
-                            className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group"
+                            className="btn-pill-outline text-xs inline-flex"
                         >
-                            Explore Full Archive <Layers size={14} className="group-hover:translate-y-[-2px] transition-transform" />
+                            <Layers size={14} />
+                            View All Projects
                         </Link>
                     </motion.div>
 
-                    <div className="flex gap-4 mb-4">
+                    {/* Navigation arrows */}
+                    <div className="flex gap-3">
                         <button
                             onClick={prevProject}
-                            className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-500 group"
+                            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/25 hover:bg-white/5 transition-all duration-300"
                         >
-                            <ChevronLeft size={32} className="group-hover:-translate-x-1 transition-transform" />
+                            <ChevronLeft size={20} />
                         </button>
                         <button
                             onClick={nextProject}
-                            className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-500 group"
+                            className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/25 hover:bg-white/5 transition-all duration-300"
                         >
-                            <ChevronRight size={32} className="group-hover:translate-x-1 transition-transform" />
+                            <ChevronRight size={20} />
                         </button>
                     </div>
                 </div>
 
-                <div className="relative min-h-[500px] md:min-h-[650px]">
+                {/* Project showcase */}
+                <div className="relative min-h-[500px] md:min-h-[550px]">
                     <AnimatePresence initial={false} custom={direction} mode="wait">
                         <motion.div
                             key={currentIndex}
@@ -86,96 +96,103 @@ const Projects = () => {
                             animate="center"
                             exit="exit"
                             transition={{
-                                y: { type: "spring", stiffness: 200, damping: 25 },
-                                opacity: { duration: 0.4 },
-                                scale: { duration: 0.4 }
+                                y: { type: "spring", stiffness: 250, damping: 30 },
+                                opacity: { duration: 0.3 },
+                                scale: { duration: 0.3 }
                             }}
-                            className="grid lg:grid-cols-[1.3fr_0.7fr] gap-12 md:gap-24 items-center"
+                            className="grid lg:grid-cols-[1.4fr_0.6fr] gap-10 items-center"
                         >
+                            {/* Image */}
                             <div className="relative group">
                                 <Link to={`/project/${projects[currentIndex].id}`} className="block">
-                                    <div className="aspect-[16/10] overflow-hidden rounded-[2rem] bg-muted border border-border/50 shadow-2xl">
+                                    <div className="aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.06] micro1-card">
                                         <motion.img
-                                            initial={{ scale: 1.2 }}
+                                            initial={{ scale: 1.1 }}
                                             animate={{ scale: 1 }}
-                                            transition={{ duration: 1.5 }}
+                                            transition={{ duration: 1.2 }}
                                             src={projects[currentIndex].image}
                                             alt={projects[currentIndex].title}
                                             className="w-full h-full object-cover"
                                         />
-                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-md gap-8">
-                                            <div className="w-20 h-20 bg-white text-black rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-2xl">
-                                                <ArrowUpRight size={32} />
+                                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+                                            <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                                <ArrowUpRight size={24} />
                                             </div>
                                         </div>
                                     </div>
                                 </Link>
 
                                 {projects[currentIndex].status && (
-                                    <div className="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-black px-6 py-2 rounded-full uppercase tracking-widest z-20 shadow-xl">
+                                    <div className="absolute -top-3 -right-3 bg-indigo-500 text-white text-[10px] font-semibold px-4 py-1.5 rounded-full z-20">
                                         {projects[currentIndex].status}
                                     </div>
                                 )}
-
-                                <div className="absolute -bottom-8 -left-8 bg-background border border-border py-4 px-8 rounded-2xl shadow-2xl hidden md:block">
-                                    <span className="text-4xl font-black tracking-tighter opacity-30 dark:opacity-20">{projects[currentIndex].year}</span>
-                                </div>
                             </div>
 
-                            <div className="space-y-8 md:space-y-12 pr-4 text-left">
-                                <div className="flex flex-wrap gap-3">
+                            {/* Info */}
+                            <div className="space-y-6">
+                                <div className="flex flex-wrap gap-2">
                                     {projects[currentIndex].tags.map((tag) => (
-                                        <span key={tag} className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground border border-border px-4 py-2 rounded-full">
+                                        <span key={tag} className="text-[10px] font-medium text-white/40 border border-white/[0.08] px-3 py-1.5 rounded-full">
                                             {tag}
                                         </span>
                                     ))}
                                 </div>
 
                                 <Link to={`/project/${projects[currentIndex].id}`} className="block group/title">
-                                    <h4 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[0.85] group-hover/title:text-muted-foreground transition-colors">
+                                    <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white/90 group-hover/title:text-white transition-colors leading-tight">
                                         {projects[currentIndex].title}
-                                    </h4>
+                                    </h3>
                                 </Link>
 
-                                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium">
+                                <p className="text-sm md:text-base text-white/40 leading-relaxed">
                                     {projects[currentIndex].desc}
                                 </p>
 
-                                <div className="flex flex-col sm:flex-row gap-12 pt-8">
+                                <div className="flex flex-wrap gap-4 pt-4">
                                     <Link
                                         to={`/project/${projects[currentIndex].id}`}
-                                        className="text-lg font-black uppercase tracking-widest border-b-[3px] border-foreground pb-2 flex items-center gap-3 hover:text-muted-foreground hover:border-muted-foreground transition-all"
+                                        className="btn-pill text-xs"
                                     >
-                                        Case Study <ArrowUpRight size={24} />
+                                        Case Study
+                                        <span className="arrow-badge">
+                                            <ArrowUpRight size={14} />
+                                        </span>
                                     </Link>
-                                    <a
-                                        href={projects[currentIndex].liveLink}
-                                        target={projects[currentIndex].liveLink === '#' ? '_self' : '_blank'}
-                                        rel="noopener noreferrer"
-                                        onClick={(e) => projects[currentIndex].liveLink === '#' && e.preventDefault()}
-                                        className={`text-lg font-black uppercase tracking-widest border-b-[3px] pb-2 flex items-center gap-3 transition-all ${projects[currentIndex].liveLink === '#' ? 'border-muted-foreground/30 text-muted-foreground/50 cursor-not-allowed' : 'border-foreground hover:text-muted-foreground hover:border-muted-foreground'}`}
-                                    >
-                                        {projects[currentIndex].liveLink === '#' ? (projects[currentIndex].status || 'Demo Not Available') : 'Live Preview'}
-                                        {projects[currentIndex].liveLink !== '#' && <Globe size={24} />}
-                                    </a>
+                                    {projects[currentIndex].liveLink !== '#' && (
+                                        <a
+                                            href={projects[currentIndex].liveLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn-pill-outline text-xs"
+                                        >
+                                            <Globe size={14} />
+                                            Live Preview
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>
                     </AnimatePresence>
                 </div>
 
-                <div className="flex items-center gap-6 mt-12">
-                    <span className="text-xs font-black tracking-widest text-muted-foreground uppercase">0{currentIndex + 1}</span>
-                    <div className="flex flex-1 h-[2px] bg-border relative overflow-hidden">
+                {/* Progress indicator */}
+                <div className="flex items-center gap-4 mt-10">
+                    <span className="text-xs font-medium text-white/30">{String(currentIndex + 1).padStart(2, '0')}</span>
+                    <div className="flex-1 h-[1px] bg-white/[0.06] relative overflow-hidden rounded-full">
                         <motion.div
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: (currentIndex + 1) / projects.length }}
-                            className="absolute inset-0 bg-foreground origin-left transition-transform duration-700"
+                            className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-violet-500 origin-left"
+                            transition={{ duration: 0.5 }}
                         />
                     </div>
-                    <span className="text-xs font-black tracking-widest text-muted-foreground uppercase">0{projects.length}</span>
+                    <span className="text-xs font-medium text-white/30">{String(projects.length).padStart(2, '0')}</span>
                 </div>
             </div>
+
+            {/* Section divider */}
+            <div className="absolute bottom-0 w-full section-glow-line"></div>
         </section>
     );
 };

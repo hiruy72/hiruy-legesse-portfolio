@@ -1,5 +1,5 @@
-import { ArrowRight, Github, Linkedin, Mail, ExternalLink, Globe } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowUpRight, Github, Linkedin, Mail, Globe } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const Hero = () => {
@@ -11,187 +11,155 @@ const Hero = () => {
     }, []);
 
     const getTimeInAddis = () => {
-        return new Intl.DateTimeFormat('en-GB', {
-            timeZone: 'Africa/Addis_Ababa',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false
-        }).format(time);
+        try {
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const eatDate = new Date(utc + (3600000 * 3));
+            const hours = String(eatDate.getHours()).padStart(2, '0');
+            const minutes = String(eatDate.getMinutes()).padStart(2, '0');
+            const seconds = String(eatDate.getSeconds()).padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}`;
+        } catch {
+            return '12:00:00';
+        }
     };
 
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center pt-20 relative overflow-hidden bg-background">
-            {/* Masterpiece Background: Interactive Logic Grid */}
-            <div className="absolute inset-0 z-0 opacity-20 dark:opacity-10 pointer-events-none">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-            </div>
+        <section id="home" className="min-h-screen flex flex-col justify-center pt-24 pb-16 relative overflow-hidden">
+            {/* Ambient background orbs */}
+            <div className="absolute top-[-20%] left-[10%] w-[600px] h-[600px] rounded-full bg-indigo-500/[0.04] blur-[120px] pointer-events-none"></div>
+            <div className="absolute bottom-[-10%] right-[5%] w-[500px] h-[500px] rounded-full bg-violet-500/[0.03] blur-[100px] pointer-events-none"></div>
 
-            {/* Kinetic Type Marquee - The "Architectural" touch */}
-            <div className="absolute top-1/4 -right-20 rotate-90 origin-top-right hidden xl:block pointer-events-none">
-                <motion.div
-                    animate={{ x: [0, -100, 0] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                    className="text-[10rem] font-black text-foreground/[0.02] dark:text-foreground/[0.01] uppercase whitespace-nowrap leading-none"
-                >
-                    Software Engineer • UI/UX Designer • Full Stack Engineer •
-                </motion.div>
-            </div>
+            {/* Subtle grid pattern */}
+            <div className="absolute inset-0 opacity-[0.03]"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+                    backgroundSize: '60px 60px'
+                }}
+            ></div>
 
-            <div className="max-w-[1440px] mx-auto px-6 lg:pl-12 w-full relative z-10">
-                <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
-                    <div className="order-2 lg:order-1">
-                        {/* Realistic Status Bar */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            className="flex flex-wrap items-center gap-6 mb-12"
-                        >
-                            <div className="flex items-center gap-3 px-4 py-2 bg-muted/50 border border-border rounded-full backdrop-blur-md">
-                                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                                <span className="text-[10px] font-black uppercase tracking-widest">Available for Hire</span>
-                            </div>
-                            <div className="flex items-center gap-3 px-4 py-2 border border-border rounded-full">
-                                <Globe size={12} className="text-muted-foreground" />
-                                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Addis Ababa, ETH — {getTimeInAddis()}</span>
-                            </div>
-                        </motion.div>
-
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-6xl md:text-8xl font-black mb-12 leading-[0.8] tracking-tighter uppercase"
-                        >
-                            CRAFTING <br />
-                            <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">DIGITAL</span> <br />
-                            EXPERIENCES.
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-xl md:text-2xl text-muted-foreground mb-16 max-w-lg leading-relaxed font-medium"
-                        >
-                            Specializing in <span className="text-foreground font-black">software engineering</span> and <span className="text-foreground font-black">UI/UX design</span> to build high-performance web products.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                            className="flex flex-wrap gap-8 items-center"
-                        >
-                            <a
-                                href="/#projects"
-                                className="h-16 px-10 bg-foreground text-background flex items-center justify-center rounded-full font-black uppercase tracking-widest text-xs gap-4 hover:scale-105 active:scale-95 transition-all shadow-xl group overflow-hidden relative"
-                            >
-                                <span className="relative z-10">Explore Projects</span>
-                                <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-                            </a>
-
-
-                            <div className="flex items-center gap-10">
-                                {[
-                                    { icon: <Github size={24} />, href: "https://github.com/hiruy72" },
-                                    { icon: <Linkedin size={24} />, href: "https://linkedin.com/in/hiruy-legesse" },
-                                    { icon: <Mail size={24} />, href: "mailto:hiruyadane@gmail.com" }
-                                ].map((social, i) => (
-                                    <a
-                                        key={i}
-                                        href={social.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:-translate-y-1"
-                                    >
-                                        {social.icon}
-                                    </a>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
-
-                    <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
-                        <div className="relative w-full aspect-square max-w-[550px]">
-                            {/* The Masterpiece: Kinetic Geometry */}
-                            <svg viewBox="0 0 200 200" className="w-full h-full text-foreground/5 dark:text-foreground/[0.03]">
-                                <motion.circle
-                                    cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4"
-                                    animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                                />
-                                <motion.circle
-                                    cx="100" cy="100" r="60" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="10 5"
-                                    animate={{ rotate: -360 }} transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                                />
-                            </svg>
-
-                            {/* Floating Masterpiece Element: "The Live Node" */}
-                            <motion.div
-                                animate={{
-                                    y: [0, -30, 0],
-                                    rotate: [0, 5, 0]
-                                }}
-                                transition={{
-                                    duration: 6,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                                className="absolute inset-0 flex items-center justify-center p-12"
-                            >
-                                <div className="relative w-full h-full bg-foreground dark:bg-muted/30 backdrop-blur-2xl rounded-[4rem] border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center overflow-hidden group">
-                                    <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
-                                    <span className="text-[12rem] font-black text-background dark:text-foreground leading-none select-none group-hover:scale-110 transition-transform duration-700">H.</span>
-
-                                    {/* Sensory Feedback Lines */}
-                                    <div className="absolute bottom-12 flex gap-1">
-                                        {[...Array(8)].map((_, i) => (
-                                            <motion.div
-                                                key={i}
-                                                animate={{ height: [10, 30, 10] }}
-                                                transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.1, ease: "easeInOut" }}
-                                                className="w-1 bg-background/30 dark:bg-foreground/20 rounded-full"
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            {/* Perspective Floating Badges */}
-                            <motion.div
-                                animate={{ y: [0, 20, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute top-[10%] -left-[5%] bg-background border border-border px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-xl z-20 flex items-center gap-4"
-                            >
-                                <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span className="text-[10px] font-black uppercase tracking-widest">Software Engineer</span>
-                            </motion.div>
-
-                            <motion.div
-                                animate={{ y: [0, -20, 0] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="absolute bottom-[20%] -right-[5%] bg-background border border-border px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-xl z-20 flex items-center gap-4"
-                            >
-                                <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                                <span className="text-[10px] font-black uppercase tracking-widest">UI/UX Designer</span>
-                            </motion.div>
+            <div className="max-w-6xl mx-auto px-6 w-full relative z-10">
+                <div className="flex flex-col items-center text-center">
+                    {/* Status badge - micro1 pill style */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="flex flex-wrap items-center gap-3 mb-10"
+                    >
+                        <div className="glass flex items-center gap-2.5 px-4 py-2 rounded-full">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span className="text-xs font-medium text-white/70">Available for Hire</span>
                         </div>
-                    </div>
+                        <div className="glass flex items-center gap-2.5 px-4 py-2 rounded-full">
+                            <Globe size={12} className="text-white/40" />
+                            <span className="text-xs font-medium text-white/50">Addis Ababa — {getTimeInAddis()}</span>
+                        </div>
+                    </motion.div>
+
+                    {/* Hero headline */}
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.15 }}
+                        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.95] mb-8"
+                    >
+                        <span className="text-gradient-micro1">Crafting Digital</span>
+                        <br />
+                        <span className="text-gradient-accent">Experiences</span>
+                    </motion.h1>
+
+                    {/* Subtitle */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="text-lg md:text-xl text-white/40 max-w-xl leading-relaxed mb-12 font-medium"
+                    >
+                        Software Engineer specializing in{' '}
+                        <span className="text-white/70">full-stack development</span> and{' '}
+                        <span className="text-white/70">UI/UX design</span> to build
+                        high-performance web products.
+                    </motion.p>
+
+                    {/* CTA Buttons */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.45 }}
+                        className="flex flex-wrap gap-4 items-center justify-center mb-16"
+                    >
+                        <a
+                            href="https://www.upwork.com/freelancers/~0191af9b1cee504214?mp_source=share"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-pill"
+                        >
+                            <span>Hire Me on Upwork</span>
+                            <span className="arrow-badge">
+                                <ArrowUpRight size={14} />
+                            </span>
+                        </a>
+                        <a href="/#projects" className="btn-pill-outline">
+                            Explore Projects
+                        </a>
+                        <a
+                            href="/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf"
+                            download="Hiruy-Legesse-Resume.pdf"
+                            className="btn-pill-outline"
+                        >
+                            Download CV
+                        </a>
+                    </motion.div>
+
+                    {/* Social links */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        className="flex items-center gap-4"
+                    >
+                        {[
+                            { icon: <Github size={18} />, href: "https://github.com/hiruy72", label: "GitHub" },
+                            { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/hiruy-legesse", label: "LinkedIn" },
+                            { icon: <Mail size={18} />, href: "mailto:hiruyadane@gmail.com", label: "Email" }
+                        ].map((social, i) => (
+                            <a
+                                key={i}
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={social.label}
+                                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10 text-white/40 hover:text-white hover:border-white/25 hover:bg-white/5 transition-all duration-300"
+                            >
+                                {social.icon}
+                            </a>
+                        ))}
+                    </motion.div>
                 </div>
             </div>
 
-            {/* The Bottom Ribbon - Masterpiece Final Touch */}
-            <div className="absolute bottom-0 w-full border-t border-border/50 bg-background/50 backdrop-blur-sm py-6 overflow-hidden hidden md:block">
-                <div className="max-w-[1440px] mx-auto px-6 lg:pl-12 flex justify-between items-center opacity-40">
-                    <span className="text-[10px] font-black uppercase tracking-[0.5em]">Scroll to Explore Experience</span>
-                    <div className="flex gap-12">
-                        <span className="text-[10px] font-black uppercase tracking-[0.5em] italic">AESTHETIC</span>
-                        <span className="text-[10px] font-black uppercase tracking-[0.5em] italic">PRECISION</span>
-                        <span className="text-[10px] font-black uppercase tracking-[0.5em] italic">PERFORMANCE</span>
-                    </div>
-                </div>
-            </div>
+            {/* Floating badges - micro1 style */}
+            <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-[25%] left-[8%] glass px-5 py-3 rounded-2xl hidden xl:flex items-center gap-3"
+            >
+                <div className="w-2 h-2 rounded-full bg-indigo-400"></div>
+                <span className="text-xs font-medium text-white/60">Software Engineer</span>
+            </motion.div>
+
+            <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                className="absolute bottom-[30%] right-[8%] glass px-5 py-3 rounded-2xl hidden xl:flex items-center gap-3"
+            >
+                <div className="w-2 h-2 rounded-full bg-violet-400"></div>
+                <span className="text-xs font-medium text-white/60">UI/UX Designer</span>
+            </motion.div>
+
+            {/* Bottom section divider */}
+            <div className="absolute bottom-0 w-full section-glow-line"></div>
         </section>
     );
 };

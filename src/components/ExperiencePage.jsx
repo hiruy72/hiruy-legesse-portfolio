@@ -1,23 +1,23 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, Briefcase, MapPin, Calendar, Terminal, ExternalLink, ChevronRight, BookOpen, Clock, Target, Award, Code } from 'lucide-react';
+import { ArrowLeft, Briefcase, MapPin, Calendar, Terminal, ExternalLink, BookOpen, Clock, Target, Award, Code, Download, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const experiences = [
     {
         company: 'Riftronix',
-        role: 'AI and Software Developer',
+        role: 'AI & Software Developer',
         duration: 'Dec 2025 – Present',
         location: 'Addis Ababa, Ethiopia',
         type: 'Current Role',
         stack: ['Python', 'React', 'Node.js', 'Next.js', 'AI/ML'],
-        desc: 'Developing software and AI solutions using Python, React, Node.js, and Next.js for various projects.',
+        desc: 'Developing software and AI solutions using Python, React, Node.js, and Next.js for diverse engineering initiatives.',
         details: [
-            'Worked on AI-powered features and software products using Python and modern JavaScript frameworks.',
-            'Developed full-stack web applications with React and Next.js on the frontend and Node.js on the backend.',
-            'Contributed to diverse client projects involving intelligent system design and scalable software architecture.'
+            'Architected AI-powered features and products using Python and modern JavaScript ecosystems.',
+            'Engineered full-stack web applications with React and Next.js on the frontend and Node.js microservices.',
+            'Contributed to client initiatives involving intelligent model integration and high-availability software architecture.'
         ],
-        icon: <Target size={24} />
+        icon: <Target size={18} className="text-indigo-400" />
     },
     {
         company: 'Eyoha Digital',
@@ -26,13 +26,13 @@ const experiences = [
         location: 'Addis Ababa, Ethiopia',
         type: 'Full-Stack Development',
         stack: ['React', 'Next.js', 'Node.js', 'MongoDB', 'REST APIs'],
-        desc: 'Developed and maintained web applications using React, Next.js, Node.js, and MongoDB.',
+        desc: 'Developed and maintained production web applications using React, Next.js, Node.js, and MongoDB.',
         details: [
-            'Developed and maintained full-stack web applications using React, Next.js, Node.js, and MongoDB.',
-            'Built RESTful APIs and implemented database-driven functionality to support dynamic application features.',
-            'Collaborated with cross-functional teams to deliver scalable and maintainable software solutions.'
+            'Built responsive web interfaces and dynamic frontends backed by Next.js and Tailwind CSS.',
+            'Engineered scalable RESTful endpoints and optimized MongoDB aggregation pipelines.',
+            'Collaborated with agile engineering teams to ensure rapid sprint cycles and high release quality.'
         ],
-        icon: <Code size={24} />
+        icon: <Code size={18} className="text-violet-400" />
     },
     {
         company: 'Shalops Digitals',
@@ -40,29 +40,29 @@ const experiences = [
         duration: 'Feb 2024 – Nov 2025',
         location: 'Addis Ababa, Ethiopia',
         type: 'Full-Stack Development',
-        stack: ['React', 'Node.js', 'PostgreSQL', 'REST APIs', 'Third-Party Integrations'],
-        desc: 'Designed and developed full-stack web applications and scalable backend services.',
+        stack: ['React', 'Node.js', 'PostgreSQL', 'REST APIs', 'Cloud Integrations'],
+        desc: 'Designed full-stack web applications and scalable backend services with database optimizations.',
         details: [
-            'Designed and developed full-stack web applications and backend services from the ground up.',
-            'Implemented responsive user interfaces and scalable server-side functionality for various clients.',
-            'Integrated third-party services and databases into software solutions to extend product capabilities.'
+            'Architected custom full-stack solutions and server-side logic from inception to deployment.',
+            'Crafted highly responsive user interfaces and robust relational database schemas in PostgreSQL.',
+            'Integrated external third-party payment, authentication, and analytics APIs seamlessly.'
         ],
-        icon: <Briefcase size={24} />
+        icon: <Briefcase size={18} className="text-indigo-400" />
     },
     {
         company: 'iCog Labs',
-        role: 'AI Research & Development Intern',
+        role: 'AI Research & Dev Intern',
         duration: 'Jan 2024 – May 2024',
         location: 'Addis Ababa, Ethiopia',
-        type: 'Research Internship',
-        stack: ['Python', 'ML Systems', 'MOSES', 'Data Processing', 'Model Evaluation'],
-        desc: 'Contributed to AI research and development projects as part of the MOSES team.',
+        type: 'AI Research Lab',
+        stack: ['Python', 'ML Systems', 'MOSES', 'Data Pipelines', 'Model Benchmarking'],
+        desc: 'Contributed to AI research projects as part of the MOSES evolutionary algorithm team.',
         details: [
-            'Contributed to AI research and development projects as part of the MOSES (Meta-Optimizing Semantic Evolutionary Search) team.',
-            'Assisted with model evaluation, experimentation, and data processing tasks to support ongoing AI research.',
-            'Gained hands-on exposure to machine learning systems and optimization techniques in a research environment.'
+            'Assisted in MOSES (Meta-Optimizing Semantic Evolutionary Search) model benchmarking and experimentation.',
+            'Constructed automated data preprocessing pipelines to feed machine learning experimentation suites.',
+            'Gained in-depth exposure to genetic programming, optimization heuristics, and research methodologies.'
         ],
-        icon: <Award size={24} />
+        icon: <Award size={18} className="text-violet-400" />
     },
 ];
 
@@ -76,190 +76,158 @@ const ExperiencePage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="min-h-screen bg-background pb-32 pt-40 overflow-hidden"
+            className="min-h-screen bg-[#050507] text-white pb-32 pt-32 relative overflow-hidden"
         >
-            {/* Masterpiece Background Decor */}
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-foreground/[0.02] rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-foreground/[0.02] rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+            {/* Ambient Background Glows */}
+            <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-indigo-600/[0.08] rounded-full blur-[160px] pointer-events-none -z-10" />
+            <div className="absolute top-2/3 right-10 w-96 h-96 bg-violet-600/[0.08] rounded-full blur-[130px] pointer-events-none -z-10" />
 
-            <div className="max-w-[1440px] mx-auto px-6 md:px-20 relative z-10">
-                {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-40">
-                    <div className="space-y-6">
-                        <Link to="/" className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-all group mb-8">
-                            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return Home
-                        </Link>
-                        <motion.h1
-                            initial={{ y: 50, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.8 }}
-                            className="text-6xl md:text-[8rem] font-black uppercase tracking-tighter leading-[0.7]"
-                        >
-                            Career <br />
-                            <span className="text-muted-foreground/40 dark:text-muted-foreground/25 italic">Timeline.</span>
-                        </motion.h1>
-                    </div>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.4 }}
-                        transition={{ delay: 0.5 }}
-                        className="text-right"
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+                {/* Back Navigation */}
+                <div className="mb-10">
+                    <Link
+                        to="/"
+                        className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground hover:text-white transition-colors"
                     >
-                        <p className="text-[10px] font-black uppercase tracking-[0.4em] max-w-xs leading-relaxed">
-                            A curated ledger of technological impact and professional evolution across multiple industries.
-                        </p>
-                    </motion.div>
+                        <ArrowLeft size={14} /> Back to Overview
+                    </Link>
                 </div>
 
-                {/* The Timeline Masterpiece */}
-                <div className="relative space-y-32 md:space-y-48">
-                    {/* Central Vertical Line */}
-                    <div className="absolute left-[30px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-border via-foreground/20 to-border opacity-30"></div>
+                {/* Header */}
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-20">
+                    <div className="max-w-2xl">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-medium text-indigo-400 mb-4">
+                            <Briefcase size={13} className="text-indigo-400" />
+                            <span>CHRONOLOGICAL TRACK RECORD</span>
+                        </div>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gradient-micro1">
+                            Career & Impact Timeline
+                        </h1>
+                    </div>
+                    <p className="text-sm md:text-base text-muted-foreground max-w-sm leading-relaxed">
+                        A detailed breakdown of technical responsibilities, architectural milestones, and software leadership.
+                    </p>
+                </div>
 
+                {/* Timeline Cards */}
+                <div className="space-y-8 relative">
                     {experiences.map((exp, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8, delay: idx * 0.1 }}
-                            className={`relative flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24`}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: idx * 0.1 }}
+                            className="glass-card rounded-3xl p-8 md:p-10 border border-white/[0.08] relative overflow-hidden group hover:border-white/20 transition-all"
                         >
-                            {/* Animated Node Icon */}
-                            <div className="absolute left-0 md:left-1/2 -translate-x-1/2 w-16 h-16 bg-background border-2 border-foreground rounded-2xl z-20 flex items-center justify-center shadow-[0_0_30px_rgba(0,0,0,0.1)] group transition-all duration-700 hover:rotate-45 hover:rounded-full hover:bg-foreground hover:text-background">
-                                <div className="group-hover:-rotate-45 transition-transform duration-700">
-                                    {exp.icon}
-                                </div>
-                            </div>
+                            <div className="grid lg:grid-cols-12 gap-8 items-start">
+                                {/* Left: Company, Role & Duration */}
+                                <div className="lg:col-span-5 space-y-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center">
+                                            {exp.icon}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-indigo-200 transition-colors">
+                                                {exp.company}
+                                            </h3>
+                                            <p className="text-xs text-muted-foreground flex items-center gap-1.5 mt-0.5">
+                                                <MapPin size={12} /> {exp.location}
+                                            </p>
+                                        </div>
+                                    </div>
 
-                            {/* Info Side */}
-                            <div className={`w-full md:w-1/2 space-y-8 ${idx % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>
-                                <div className="flex flex-col gap-2">
-                                    <span className="text-[10px] font-black uppercase tracking-[0.5em] text-muted-foreground/60">{exp.duration}</span>
-                                    <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none group-hover:text-muted-foreground transition-colors duration-500">
-                                        {exp.company}
-                                    </h3>
-                                    <div className={`flex flex-wrap gap-3 mt-4 ${idx % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                                        <span className="text-[8px] font-black uppercase tracking-widest bg-foreground text-background px-4 py-1.5 rounded-full shadow-lg">
-                                            {exp.type}
+                                    <div className="flex flex-wrap items-center gap-2 pt-2">
+                                        <span className="text-xs font-medium px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-muted-foreground">
+                                            {exp.duration}
+                                        </span>
+                                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300">
+                                            {exp.role}
                                         </span>
                                     </div>
-                                </div>
-                                <p className="text-lg md:text-xl font-medium text-muted-foreground leading-relaxed max-w-xl ml-auto mr-0 md:mr-0 md:ml-auto">
-                                    {exp.desc}
-                                </p>
-                                <div className={`flex flex-wrap gap-2 ${idx % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                                    {exp.stack.map(s => (
-                                        <span key={s} className="text-[7px] font-black uppercase tracking-[0.2em] opacity-40 hover:opacity-100 transition-opacity cursor-default">{s}</span>
-                                    ))}
-                                </div>
-                            </div>
 
-                            {/* Details Card - The Masterpiece Touch */}
-                            <div className="w-full md:w-1/2">
-                                <motion.div
-                                    whileHover={{ y: -10 }}
-                                    className="bg-muted/10 backdrop-blur-3xl border border-border/80 rounded-[3rem] p-10 md:p-14 space-y-8 shadow-2xl relative overflow-hidden group"
-                                >
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-foreground/5 rounded-full blur-3xl -z-10 group-hover:bg-foreground/10 transition-all duration-1000"></div>
-
-                                    <div className="flex items-center gap-6 pb-8 border-b border-border/100">
-                                        <div className="w-14 h-14 rounded-2xl bg-foreground flex items-center justify-center text-background shadow-xl">
-                                            <Terminal size={20} />
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <span className="text-[10px] font-black uppercase tracking-[0.3em]">{exp.role}</span>
-                                            <div className="flex items-center gap-2 text-muted-foreground">
-                                                <MapPin size={10} />
-                                                <span className="text-[8px] font-black uppercase tracking-widest">{exp.location}</span>
-                                            </div>
+                                    <div className="pt-2">
+                                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-2">Technologies</span>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {exp.stack.map(s => (
+                                                <span key={s} className="text-[11px] font-medium px-2.5 py-0.5 rounded-full bg-white/[0.02] border border-white/[0.04] text-muted-foreground/80">
+                                                    {s}
+                                                </span>
+                                            ))}
                                         </div>
                                     </div>
+                                </div>
 
-                                    <ul className="space-y-6">
+                                {/* Right: Detailed Points */}
+                                <div className="lg:col-span-7 lg:pl-8 lg:border-l lg:border-white/[0.06] space-y-4">
+                                    <h4 className="text-sm font-semibold text-white/90 uppercase tracking-wider">Key Contributions & Architecture</h4>
+                                    <ul className="space-y-3">
                                         {exp.details.map((detail, i) => (
-                                            <li key={i} className="flex gap-6 items-start">
-                                                <div className="mt-2 w-1.5 h-1.5 rounded-full bg-foreground/40 flex-shrink-0"></div>
-                                                <span className="text-sm md:text-base font-medium text-muted-foreground leading-relaxed">
-                                                    {detail}
-                                                </span>
+                                            <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground leading-relaxed">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 flex-shrink-0" />
+                                                <span>{detail}</span>
                                             </li>
                                         ))}
                                     </ul>
-
-                                    <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                        <div className="flex items-center gap-2 text-[8px] font-black uppercase tracking-[0.4em] text-muted-foreground">
-                                            <Clock size={10} /> Node Registry Finalized
-                                        </div>
-                                    </div>
-                                </motion.div>
+                                </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
 
-                {/* Educational Infrastructure Upgrade */}
-                <div className="mt-64 pt-40 border-t border-border/50 relative">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-12 py-3 bg-background border border-border rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-muted-foreground/60 whitespace-nowrap">
-                        Infrastructural Foundation
+                {/* Academic Background */}
+                <div className="mt-28">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-medium text-indigo-400 mb-6">
+                        <BookOpen size={13} className="text-indigo-400" />
+                        <span>ACADEMIC FOUNDATION</span>
                     </div>
 
-                    <div className="grid lg:grid-cols-2 gap-12 items-start">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="p-16 md:p-20 bg-muted/20 rounded-[4rem] border border-border group hover:bg-muted/40 transition-all duration-700 shadow-xl"
-                        >
-                            <div className="flex flex-col gap-10">
-                                <div className="w-24 h-24 rounded-[2rem] bg-foreground text-background flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-700">
-                                    <BookOpen size={40} />
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div className="glass-card rounded-3xl p-8 border border-white/[0.08] space-y-4">
+                            <div className="flex items-center justify-between">
+                                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-indigo-400">
+                                    <BookOpen size={22} />
                                 </div>
-                                <div className="space-y-6">
-                                    <div className="flex justify-between items-start">
-                                        <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">Addis Ababa University</h3>
-                                        <span className="text-[10px] font-black bg-foreground text-background px-4 py-1.5 rounded-full">Top Tier</span>
-                                    </div>
-                                    <p className="text-xl font-black uppercase tracking-[0.2em] text-muted-foreground">Software Engineering Dept.</p>
-                                    <p className="text-sm font-medium opacity-60 uppercase tracking-widest leading-relaxed">
-                                        Specializing in back-end development, scalable architectures, and distributed AI systems. Currently rank in the top percentile of the department.
-                                    </p>
-                                </div>
+                                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                                    Top Percentile
+                                </span>
                             </div>
-                        </motion.div>
+                            <h3 className="text-2xl font-bold text-white tracking-tight">Addis Ababa University</h3>
+                            <p className="text-sm font-semibold text-indigo-300">B.Sc. in Software Engineering</p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Focusing on algorithms, software architecture, distributed systems, and intelligent machine learning applications with outstanding academic performance.
+                            </p>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="p-16 md:p-20 bg-muted/10 rounded-[4rem] border border-dashed border-border group hover:border-foreground/50 transition-all duration-700"
-                        >
-                            <div className="flex flex-col gap-10">
-                                <div className="w-20 h-20 rounded-[1.5rem] bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-foreground group-hover:text-background transition-all duration-700">
-                                    <Award size={32} />
+                        <div className="glass-card rounded-3xl p-8 border border-white/[0.08] space-y-4">
+                            <div className="flex items-center justify-between">
+                                <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-violet-400">
+                                    <Award size={22} />
                                 </div>
-                                <div className="space-y-6">
-                                    <h3 className="text-3xl font-black uppercase tracking-tighter leading-none">St.Gabriel School</h3>
-                                    <p className="text-lg font-black uppercase tracking-[0.2em] text-muted-foreground/60">High School Diploma</p>
-                                    <p className="text-sm font-medium opacity-60 uppercase tracking-widest leading-relaxed">
-                                        Achieved an exceptional score of 562/700 on the Ethiopian School Leaving Examination (ESLE).
-                                    </p>
-                                </div>
+                                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-white">
+                                    Score: 562/700
+                                </span>
                             </div>
-                        </motion.div>
+                            <h3 className="text-2xl font-bold text-white tracking-tight">St. Gabriel School</h3>
+                            <p className="text-sm font-semibold text-violet-300">High School Diploma</p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Completed secondary education with distinction, achieving top scores in national secondary school examinations in mathematics and sciences.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                {/* Final Call to Action */}
-                <div className="mt-48 flex flex-col items-center text-center space-y-12">
-                    <div className="h-1px w-40 bg-border"></div>
-                    <p className="text-sm font-black uppercase tracking-[0.5em] text-muted-foreground/40">Continuously Evolving</p>
+                {/* Bottom CTA */}
+                <div className="mt-20 flex justify-center">
                     <a
                         href="/Hiruy-Legesse-Adane-FlowCV-Resume-20260215 (1).pdf"
                         download="Hiruy-Legesse-Resume.pdf"
-                        className="h-24 px-16 bg-foreground text-background rounded-full flex items-center justify-center font-black uppercase tracking-[0.3em] text-xs gap-6 hover:scale-105 active:scale-95 transition-all shadow-2xl group"
+                        className="btn-pill"
                     >
-                        Export Official Codex / CV <Briefcase size={18} className="group-hover:rotate-12 transition-transform" />
+                        <span>Download Full Curriculum Vitae</span>
+                        <div className="arrow-badge">
+                            <Download size={14} />
+                        </div>
                     </a>
                 </div>
             </div>
@@ -268,3 +236,4 @@ const ExperiencePage = () => {
 };
 
 export default ExperiencePage;
+

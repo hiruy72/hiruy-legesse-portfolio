@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -15,6 +15,30 @@ import AllProjects from './components/AllProjects';
 import ExperiencePage from './components/ExperiencePage';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+class ErrorBoundary extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { hasError: false, error: null };
+    }
+    static getDerivedStateFromError(error) {
+        return { hasError: true, error };
+    }
+    componentDidCatch(error, errorInfo) {
+        console.error("ErrorBoundary caught an error:", error, errorInfo);
+    }
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div className="p-8 text-center text-white">
+                    <h2 className="text-xl font-bold mb-2">Section encountered an error</h2>
+                    <p className="text-white/60 text-sm">{this.state.error?.message}</p>
+                </div>
+            );
+        }
+        return this.props.children;
+    }
+}
 
 function App() {
     const [theme, setTheme] = useState(() => {
@@ -41,31 +65,45 @@ function App() {
     return (
         <Router>
             <div className="min-h-screen bg-background text-foreground transition-colors duration-300 relative">
-                <div className="fixed inset-0 dotted-bg pointer-events-none z-0"></div>
+                {/* Micro1-style ambient viewport glow */}
+                <div className="viewport-glow"></div>
 
                 <div className="relative z-10">
                     <Navbar theme={theme} toggleTheme={toggleTheme} />
                     <main>
-                        <Routes>
-                            <Route path="/" element={
-                                <>
-                                    <Hero />
-                                    <About />
-                                    <TechStack />
-                                    <Projects />
-                                    <Experience />
-                                    <Certificates />
-                                    <Contact />
-                                </>
-                            } />
-                            <Route path="/about" element={<AboutPage />} />
-                            <Route path="/tech-stack" element={<TechStackPage />} />
-                            <Route path="/projects" element={<AllProjects />} />
-                            <Route path="/experience" element={<ExperiencePage />} />
-                            <Route path="/credentials" element={<AllCertificates />} />
-                            <Route path="/contact" element={<Contact />} />
-                            <Route path="/project/:id" element={<ProjectDetail />} />
-                        </Routes>
+                        <ErrorBoundary>
+                            <Routes>
+                                <Route path="/" element={
+                                    <>
+                                        <Hero />
+                                        <About />
+                                        <TechStack />
+                                        <Projects />
+                                        <Experience />
+                                        <Certificates />
+                                        <Contact />
+                                    </>
+                                } />
+                                <Route path="/about" element={<AboutPage />} />
+                                <Route path="/tech-stack" element={<TechStackPage />} />
+                                <Route path="/projects" element={<AllProjects />} />
+                                <Route path="/experience" element={<ExperiencePage />} />
+                                <Route path="/credentials" element={<AllCertificates />} />
+                                <Route path="/contact" element={<Contact />} />
+                                <Route path="/project/:id" element={<ProjectDetail />} />
+                                <Route path="*" element={
+                                    <>
+                                        <Hero />
+                                        <About />
+                                        <TechStack />
+                                        <Projects />
+                                        <Experience />
+                                        <Certificates />
+                                        <Contact />
+                                    </>
+                                } />
+                            </Routes>
+                        </ErrorBoundary>
                     </main>
                     <Footer />
                 </div>
