@@ -66,7 +66,7 @@ const Footer = () => {
                                 <Github size={16} />
                             </a>
                             <a
-                                href="https://linkedin.com/in/hiruy-legesse"
+                                href="https://www.linkedin.com/in/hiruy-legesse-503a59354/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 title="LinkedIn"

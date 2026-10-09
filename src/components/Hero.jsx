@@ -118,7 +118,7 @@ const Hero = () => {
                     >
                         {[
                             { icon: <Github size={18} />, href: "https://github.com/hiruy72", label: "GitHub" },
-                            { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/hiruy-legesse", label: "LinkedIn" },
+                            { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/in/hiruy-legesse-503a59354/", label: "LinkedIn" },
                             { icon: <Mail size={18} />, href: "mailto:hiruyadane@gmail.com", label: "Email" }
                         ].map((social, i) => (
                             <a

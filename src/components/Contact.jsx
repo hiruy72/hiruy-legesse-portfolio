@@ -136,7 +136,7 @@ const Contact = () => {
                                 {[
                                     { icon: <Globe size={18} />, label: 'Upwork', href: 'https://www.upwork.com/freelancers/~0191af9b1cee504214?mp_source=share' },
                                     { icon: <Github size={18} />, label: 'GitHub', href: 'https://github.com/hiruy72' },
-                                    { icon: <Linkedin size={18} />, label: 'LinkedIn', href: 'https://linkedin.com/in/hiruy-legesse' },
+                                    { icon: <Linkedin size={18} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/hiruy-legesse-503a59354/' },
                                     { icon: <Mail size={18} />, label: 'Email', href: 'mailto:hiruyadane@gmail.com' }
                                 ].map((item, idx) => (
                                     <a
