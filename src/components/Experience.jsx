@@ -4,25 +4,32 @@ import { Link } from 'react-router-dom';
 
 const experiences = [
     {
-        company: 'Riftronix',
-        role: 'AI & Software Developer',
-        duration: 'Dec 2025 – Present',
+        company: 'Jirtuu Software Labs',
+        role: 'DSA Instructor',
+        duration: 'Jul 2026 – Sep 2026',
         location: 'Addis Ababa, Ethiopia',
-        badge: 'Current Role',
-        badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-        desc: 'Spearheading AI-driven products and full-stack software solutions. Architecting scalable microservices and intuitive user interfaces with Python, React, Next.js, and Node.js.'
+        badge: 'Volunteer',
+        badgeColor: 'bg-violet-500/10 text-violet-400 border-violet-500/20',
+        desc: 'Taught Data Structures and Algorithms through hands-on coding exercises and guided students through algorithmic problem-solving techniques.'
+    },
+    {
+        company: 'Riftronix',
+        role: 'Software Developer',
+        duration: 'Dec 2025 – Apr 2026',
+        location: 'Addis Ababa, Ethiopia',
+        desc: 'Developed full-stack applications using React, Next.js, Python, and Node.js, contributing to frontend architecture, API integration, and application features. Built and maintained BunaProof, a React and Django platform with role-based access control, PostgreSQL/PostGIS, and workflows for farmers and field agents.'
     },
     {
         company: 'Eyoha Digital',
         role: 'Full-Stack Developer',
-        duration: 'Jan 2026 – Mar 2026',
+        duration: 'Feb 2025 – Jul 2025',
         location: 'Addis Ababa, Ethiopia',
-        desc: 'Engineered high-performance web applications using React, Next.js, Node.js, and MongoDB. Developed secure RESTful APIs and real-time database-driven workflows.'
+        desc: 'Developed a gym discovery and management website using React and Next.js. Built responsive websites for multiple companies and integrated RESTful APIs with TypeScript and JavaScript, connecting interfaces with Node.js, NestJS, and Express.js backends.'
     },
     {
         company: 'Shalops Digitals',
         role: 'Full-Stack Developer',
-        duration: 'Feb 2024 – Nov 2025',
+        duration: 'Jun 2024 – Nov 2025',
         location: 'Addis Ababa, Ethiopia',
         desc: 'Designed full-stack architectures and backend services. Created resilient APIs, streamlined cloud integrations, and crafted responsive frontends tailored for optimal UX.'
     },

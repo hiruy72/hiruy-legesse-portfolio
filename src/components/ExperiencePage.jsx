@@ -5,39 +5,54 @@ import { useEffect } from 'react';
 
 const experiences = [
     {
-        company: 'Riftronix',
-        role: 'AI & Software Developer',
-        duration: 'Dec 2025 – Present',
+        company: 'Jirtuu Software Labs',
+        role: 'DSA Instructor',
+        duration: 'Jul 2026 – Sep 2026',
         location: 'Addis Ababa, Ethiopia',
-        type: 'Current Role',
-        stack: ['Python', 'React', 'Node.js', 'Next.js', 'AI/ML'],
-        desc: 'Developing software and AI solutions using Python, React, Node.js, and Next.js for diverse engineering initiatives.',
+        type: 'Volunteer Teaching',
+        stack: ['Data Structures', 'Algorithms', 'Problem Solving', 'Mentoring'],
+        desc: 'Taught Data Structures and Algorithms through hands-on coding exercises and guided students through algorithmic problem-solving.',
         details: [
-            'Architected AI-powered features and products using Python and modern JavaScript ecosystems.',
-            'Engineered full-stack web applications with React and Next.js on the frontend and Node.js microservices.',
-            'Contributed to client initiatives involving intelligent model integration and high-availability software architecture.'
+            'Taught core data structures (arrays, linked lists, trees, graphs, hash maps) through structured coding sessions.',
+            'Guided students through algorithmic problem-solving techniques including dynamic programming, sorting, and graph traversal.',
+            'Reviewed and provided constructive feedback on student code, improving their problem-solving efficiency and code quality.'
+        ],
+        icon: <BookOpen size={18} className="text-violet-400" />
+    },
+    {
+        company: 'Riftronix',
+        role: 'Software Developer',
+        duration: 'Dec 2025 – Apr 2026',
+        location: 'Addis Ababa, Ethiopia',
+        type: 'Full-Stack Development',
+        stack: ['React', 'Next.js', 'Python', 'Django', 'Node.js', 'PostgreSQL', 'PostGIS'],
+        desc: 'Developed full-stack applications using React, Next.js, Python, and Node.js, contributing to frontend architecture, API integration, and application features.',
+        details: [
+            'Developed full-stack applications using React, Next.js, Python, and Node.js, contributing to frontend architecture, API integration, and application features.',
+            'Built and maintained BunaProof, a React and Django platform with role-based access control, PostgreSQL/PostGIS, and workflows for farmers and field agents.',
+            'Developed reusable frontend components and integrated RESTful APIs to connect user interfaces with backend services and database-driven workflows.'
         ],
         icon: <Target size={18} className="text-indigo-400" />
     },
     {
         company: 'Eyoha Digital',
         role: 'Full-Stack Developer',
-        duration: 'Jan 2026 – Mar 2026',
+        duration: 'Feb 2025 – Jul 2025',
         location: 'Addis Ababa, Ethiopia',
         type: 'Full-Stack Development',
-        stack: ['React', 'Next.js', 'Node.js', 'MongoDB', 'REST APIs'],
-        desc: 'Developed and maintained production web applications using React, Next.js, Node.js, and MongoDB.',
+        stack: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'Express.js'],
+        desc: 'Developed a gym discovery and management website using React and Next.js, building responsive interfaces for users and gym administrators.',
         details: [
-            'Built responsive web interfaces and dynamic frontends backed by Next.js and Tailwind CSS.',
-            'Engineered scalable RESTful endpoints and optimized MongoDB aggregation pipelines.',
-            'Collaborated with agile engineering teams to ensure rapid sprint cycles and high release quality.'
+            'Developed a gym discovery and management website using React and Next.js, building responsive interfaces for users and gym administrators.',
+            'Built responsive websites for multiple companies, translating UI/UX designs into reusable and user-focused frontend components.',
+            'Integrated RESTful APIs with frontend applications using TypeScript and JavaScript, connecting interfaces with Node.js, NestJS, and Express.js backends.'
         ],
         icon: <Code size={18} className="text-violet-400" />
     },
     {
         company: 'Shalops Digitals',
         role: 'Full-Stack Developer',
-        duration: 'Feb 2024 – Nov 2025',
+        duration: 'Jun 2024 – Nov 2025',
         location: 'Addis Ababa, Ethiopia',
         type: 'Full-Stack Development',
         stack: ['React', 'Node.js', 'PostgreSQL', 'REST APIs', 'Cloud Integrations'],
